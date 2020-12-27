@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LinkedIn Login,Signin | LinkedIn</title>
-    <link rel="shortcut icon" href="http://localhost/Linkedin/frontend/assets/favicon/linkedIn.ico">
-    <link rel="stylesheet" href="frontend/assets/css/style.css">
-</head>
+<?php
+ include_once 'backend/init.php';
+ $page_title="LinkedIn Login,Signin | LinkedIn"; 
+?>
+<?php require_once "backend/shared/loginHeader.php"; ?>
 <body>
   <div id="app__container">
     <main class="app__content">
@@ -26,7 +22,7 @@
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="username" aria-hidden="true">Email or Phone</label>
                           <input id="username" name="username" type="text" aria-describedby="error-for-username" required autofocus="" aria-label="Email or Phone">
-                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive">Please enter a valid username</div>
+                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive"></div>
                       </div>
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="password" aria-hidden="true">Password</label>
@@ -35,7 +31,7 @@
                               <!-- An element to toggle between password visibility -->
                               <input type="checkbox" onclick="myFunction()" class="checkbox">
                           </div>
-                          <div error-for="password" id="error-for-password" class="form__label--error" role="alert" aria-live="assertive">The password you provided must have at least 6 characters.</div>
+                          <div error-for="password" id="error-for-password" class="form__label--error" role="alert" aria-live="assertive"></div>
                       </div>
                       <div class="f__pass">
                           <a href="#">Forgot Password?</a>

@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp | LinkedIn</title>
-    <link rel="shortcut icon" href="http://localhost/Linkedin/frontend/assets/favicon/linkedIn.ico">
-    <link rel="stylesheet" href="frontend/assets/css/style.css">
-</head>
+<?php
+ include_once 'backend/init.php';
+
+?>
+<?php require_once "backend/shared/loginHeader.php"; ?>
 <body style="background: linear-gradient(45deg, #0073b1, #0c8996);
     background-attachment: fixed;
     background-color: #0073b1;">

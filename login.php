@@ -1,6 +1,34 @@
 <?php
  include_once 'backend/init.php';
  $page_title="LinkedIn Login,Signin | LinkedIn"; 
+ if(Login::isLoggedIn()){
+  redirect_to(url_for("home"));
+}else if(isset($_SESSION['userLoggedIn'])){
+  redirect_to(url_for("home"));
+}
+ if(is_post_request()){
+  if(isset($_POST['LoginButton'])){
+      $username=FormSanitizer::sanitizeFormUsername($_POST['username']);
+      $password=FormSanitizer::sanitizeFormPassword($_POST['password']);
+   
+      $wasSuccessful=$account->login($username,$password);
+     
+      if($wasSuccessful){
+        $user_id=$account->getUserId($username);            
+        $tstrong = true;
+        $token = bin2hex(openssl_random_pseudo_bytes(64, $tstrong));
+        $loadFromUser->create('token', array('token'=>sha1($token), 'user_id'=>$user_id));
+        setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
+               
+        session_regenerate_id();
+        $_SESSION["userLoggedIn"]=$user_id;
+        redirect_to(url_for("home"));
+        
+      }
+  
+  }
+
+}
 ?>
 <?php require_once "backend/shared/loginHeader.php"; ?>
 <body>
@@ -16,13 +44,15 @@
                      <h1 class="header__content__heading ">Sign in</h1>
                      <p class="header__content__subheading ">Stay updated on your professional world</p>
                   </div>
-                  <form action="" class="login-page-form" method="POST">
+                  <form action="<?php echo h($_SERVER["PHP_SELF"]);?>" class="login-page-form" method="POST">
                       <!-- <input type="text" class="form-login-input" placeholder="Email or mobile number">
                       <input type="password" class="form-login-input"> -->
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="username" aria-hidden="true">Email or Phone</label>
-                          <input id="username" name="username" type="text" aria-describedby="error-for-username" required autofocus="" aria-label="Email or Phone">
-                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive"></div>
+                          <input id="username" name="username" type="text" aria-describedby="error-for-username" value="<?php getInputValue('username'); ?>" required autofocus>
+                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive">
+                             <?php echo $account->getError(Constants::$loginUsernameFailed); ?>
+                          </div>
                       </div>
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="password" aria-hidden="true">Password</label>
@@ -36,12 +66,12 @@
                       <div class="f__pass">
                           <a href="#">Forgot Password?</a>
                       </div>
-                      <input type="submit" class="form-login-btn" value="Log In">
+                      <input type="submit" class="form-login-btn" value="Log In" name="LoginButton">
                   </form>
               </div>
               <div class="login-page__footer">
                 <div class="join-now">
-                  <span>New to LinkedIn?</span><a href="sign.php">Join now</a>
+                  <span>New to LinkedIn?</span><a href="<?php echo url_for('sign.php'); ?>">Join now</a>
                 </div>
               </div>
          </div>

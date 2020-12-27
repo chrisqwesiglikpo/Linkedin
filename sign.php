@@ -1,5 +1,10 @@
 <?php
  include_once 'backend/init.php';
+ if(Login::isLoggedIn()){
+  redirect_to(url_for("home"));
+}else if(isset($_SESSION['userLoggedIn'])){
+  redirect_to(url_for("home"));
+}
  if(is_post_request()){
   if(isset($_POST['submitButton'])){
     $firstName=FormSanitizer::sanitizeFormString($_POST['firstname']);
@@ -22,7 +27,7 @@
       setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
       $_SESSION["userLoggedIn"]=$user_id;
 
-      redirect_to(url_for("home.php"));
+      redirect_to(url_for("home"));
     }
 
   }
@@ -45,7 +50,7 @@
                      <h1 class="header__content__heading ">SignUp</h1>
                      <p class="header__content__subheading ">Make the most of your professional life</p>
                   </div>
-                  <form action="" class="login-page-form" method="POST">
+                  <form  action="<?php echo h($_SERVER["PHP_SELF"]);?>" class="login-page-form" method="POST">
                       <!-- <input type="text" class="form-login-input" placeholder="Email or mobile number">
                       <input type="password" class="form-login-input"> -->
                       <div class="form__input--floating mt-24">

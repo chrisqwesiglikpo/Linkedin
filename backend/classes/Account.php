@@ -161,10 +161,10 @@ class Account{
             return false;
         }
     }
-    public function generateUsername($fn){
-        if(!empty($fn)){
-            if(!in_array(Constants::$firstNameCharacters,$this->errorArray)){
-                $username=strtolower($fn);
+    public function generateUsername($fn,$ln){
+        if(!empty($fn) && !empty($ln)){
+            if(!in_array(Constants::$firstNameCharacters,$this->errorArray) && !in_array(Constants::$lastNameCharacters,$this->errorArray)){
+                $username=strtolower($fn."".$ln);
                 if($this->checkUsernameExists($username)){
                     $screenRand=rand();
                     $userLink=''.$username.''.$screenRand.'';

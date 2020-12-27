@@ -15,7 +15,7 @@
     $password=FormSanitizer::sanitizeFormPassword($_POST['password']);
     $password2=FormSanitizer::sanitizeFormPassword($_POST['cpassword']);
 
-    $username=$account->generateUsername($firstName);
+    $username=$account->generateUsername($firstName,$lastName);
     
     $wasSuccessful=$account->register($firstName,$lastName,$username,$email,$password,$password2);
     if($wasSuccessful){

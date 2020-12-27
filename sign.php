@@ -1,9 +1,9 @@
 <?php
  include_once 'backend/init.php';
  if(Login::isLoggedIn()){
-  redirect_to(url_for("home"));
+  redirect_to(url_for("profile"));
 }else if(isset($_SESSION['userLoggedIn'])){
-  redirect_to(url_for("home"));
+  redirect_to(url_for("profile"));
 }
  if(is_post_request()){
   if(isset($_POST['submitButton'])){
@@ -27,7 +27,7 @@
       setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
       $_SESSION["userLoggedIn"]=$user_id;
 
-      redirect_to(url_for("home"));
+      redirect_to(url_for("profile"));
     }
 
   }

@@ -2,9 +2,9 @@
  include_once 'backend/init.php';
  $page_title="LinkedIn Login,Signin | LinkedIn"; 
  if(Login::isLoggedIn()){
-  redirect_to(url_for("home"));
+  redirect_to(url_for("profile"));
 }else if(isset($_SESSION['userLoggedIn'])){
-  redirect_to(url_for("home"));
+  redirect_to(url_for("profile"));
 }
  if(is_post_request()){
   if(isset($_POST['LoginButton'])){
@@ -22,7 +22,7 @@
                
         session_regenerate_id();
         $_SESSION["userLoggedIn"]=$user_id;
-        redirect_to(url_for("home"));
+        redirect_to(url_for("profile"));
         
       }
   

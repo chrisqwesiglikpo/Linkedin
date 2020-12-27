@@ -3,7 +3,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^(home|profile|login|index|logout|sign|logout|replies|post|messages)/?$ $1.php [NC,L] 
-RewriteRule ^([a-zA-Z0-9_-]+)/?$ profile.php?username=$1 [QSA]
+RewriteRule ^in/([a-zA-Z0-9_-]+)/?$ profile.php?username=$1 [QSA]
 RewriteRule ^messages/([0-9]+)/?$ chat.php?chatId=$1
 RewriteRule ^settings/account/?$ account.php
 RewriteRule ^settings/password/?$ password.php

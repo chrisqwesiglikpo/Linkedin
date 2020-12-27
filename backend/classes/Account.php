@@ -73,14 +73,14 @@ class Account{
         }else if($rand==1){
             $profilePic="frontend/assets/images/defaultProfilePic.png";
         }
-        $query=$this->con->prepare("INSERT INTO users (firstName,lastName,email,password,profilePic,username,screenName)
-                                 VALUES(:fn,:ln,:em,:pw,:pic,:un,:screenName)");
+        $query=$this->con->prepare("INSERT INTO users (firstName,lastName,email,password,profilePic,username)
+                                 VALUES(:fn,:ln,:em,:pw,:pic,:un)");
         $query->bindParam(":fn",$fn,PDO::PARAM_STR);
         $query->bindParam(":ln",$ln,PDO::PARAM_STR);
         $query->bindParam(":un",$un,PDO::PARAM_STR);
         $query->bindParam(":em",$em,PDO::PARAM_STR);
         $query->bindParam(":pw",$pw,PDO::PARAM_STR);
-        $query->bindParam(":screenName",$un,PDO::PARAM_STR);
+        // $query->bindParam(":screenName",$un,PDO::PARAM_STR);
         $query->bindParam(":pic",$profilePic,PDO::PARAM_STR);
 
        return $query->execute();
@@ -162,7 +162,7 @@ class Account{
         }
     }
     public function generateUsername($fn){
-        if(!empty($fn) && !empty($ln)){
+        if(!empty($fn)){
             if(!in_array(Constants::$firstNameCharacters,$this->errorArray)){
                 $username=strtolower($fn);
                 if($this->checkUsernameExists($username)){

@@ -1,6 +1,33 @@
 <?php
  include_once 'backend/init.php';
+ if(is_post_request()){
+  if(isset($_POST['submitButton'])){
+    $firstName=FormSanitizer::sanitizeFormString($_POST['firstname']);
+    $lastName=FormSanitizer::sanitizeFormString($_POST['lastname']);
 
+    $email=FormSanitizer::sanitizeFormEmail($_POST['email']);
+
+    $password=FormSanitizer::sanitizeFormPassword($_POST['password']);
+    $password2=FormSanitizer::sanitizeFormPassword($_POST['cpassword']);
+
+    $username=$account->generateUsername($firstName);
+    
+    $wasSuccessful=$account->register($firstName,$lastName,$username,$email,$password,$password2);
+    if($wasSuccessful){
+      session_regenerate_id();
+      $user_id=$account->getUserId($email);
+      $tstrong = true;
+      $token = bin2hex(openssl_random_pseudo_bytes(64, $tstrong));
+      $loadFromUser->create('token', array('token'=>sha1($token), 'user_id'=>$user_id));
+      setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
+      $_SESSION["userLoggedIn"]=$user_id;
+
+      redirect_to(url_for("home"));
+    }
+
+  }
+
+ }
 ?>
 <?php require_once "backend/shared/loginHeader.php"; ?>
 <body style="background: linear-gradient(45deg, #0073b1, #0c8996);
@@ -23,18 +50,21 @@
                       <input type="password" class="form-login-input"> -->
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="firstname" aria-hidden="true">First name</label>
-                          <input id="firstname" name="firstname" type="text" aria-describedby="error-for-firstname" required autofocus="" aria-label="Email or Phone">
-                          <div error-for="firstname" id="error-for-firstname" class="form__label--error" role="alert" aria-live="assertive"></div>
+                          <input id="firstname" name="firstname" type="text" aria-describedby="error-for-firstname"  value="<?php getInputValue('firstname'); ?>" autocomplete="off" autofocus required>
+                          <div error-for="firstname" id="error-for-firstname" class="form__label--error" role="alert" aria-live="assertive"><?php echo $account->getError(Constants::$firstNameCharacters); ?></div>
                       </div>
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="lastname" aria-hidden="true">Last name</label>
-                          <input id="lastname" name="lastname" type="text" aria-describedby="error-for-lastname" required autofocus="" aria-label="Email or Phone">
-                          <div error-for="lastname" id="error-for-lastname" class="form__label--error" role="alert" aria-live="assertive"></div>
+                          <input id="lastname" name="lastname" type="text" aria-describedby="error-for-lastname" value="<?php getInputValue('lastname'); ?>" autocomplete="off" required autofocus>
+                          <div error-for="lastname" id="error-for-lastname" class="form__label--error" role="alert" aria-live="assertive"><?php echo $account->getError(Constants::$lastNameCharacters); ?></div>
                       </div>
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="username" aria-hidden="true">Email</label>
-                          <input id="username" name="username" type="text" aria-describedby="error-for-username" required autofocus="" aria-label="Email or Phone">
-                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive"></div>
+                          <input id="username" name="email" type="email" aria-describedby="error-for-username" value="<?php getInputValue('email'); ?>" autocomplete="off"  required autofocus>
+                          <div error-for="username" id="error-for-username" class="form__label--error" role="alert" aria-live="assertive">
+                               <?php echo $account->getError(Constants::$emailTaken); ?>   
+                               <?php echo $account->getError(Constants::$emailInvalid); ?>  
+                          </div>
                       </div>
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="password" aria-hidden="true">Password(6 or more characters)</label>
@@ -43,12 +73,25 @@
                               <!-- An element to toggle between password visibility -->
                               <input type="checkbox" onclick="myFunction()" class="checkbox">
                           </div>
+                          <div error-for="password" id="error-for-password" class="form__label--error" role="alert" aria-live="assertive">
+                          <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>  
+                          <?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>  
+                          <?php echo $account->getError(Constants::$passwordLength); ?>  
+                          </div>
+                      </div>
+                      <div class="form__input--floating mt-24">
+                          <label class="form__label--floating" for="cpassword" aria-hidden="true">Confirm Password</label>
+                          <div class="check_pass">
+                              <input id="cpassword" name="cpassword" type="password"  required>
+                              <!-- An element to toggle between password visibility -->
+                              <input type="checkbox" onclick="myFunction()" class="checkbox">
+                          </div>
                           <div error-for="password" id="error-for-password" class="form__label--error" role="alert" aria-live="assertive"></div>
                       </div>
                       <div class="terms">
                           <p>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</p>
                       </div>
-                      <input type="submit" class="form-login-btn" value="Agree & Join">
+                      <input type="submit" class="form-login-btn" value="Agree & Join" name="submitButton">
                   </form>
               </div>
               <div class="login-page__footer">

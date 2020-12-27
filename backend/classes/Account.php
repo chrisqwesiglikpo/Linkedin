@@ -69,9 +69,9 @@ class Account{
         $pw=password_hash($pw,PASSWORD_BCRYPT,['cost'=>10]);
         $rand=rand(0,1);
         if($rand==0){
-            $profilePic="frontend/assets/images/profilePic.jpeg";
+            $profilePic="frontend/assets/images/defaultPic.png";
         }else if($rand==1){
-            $profilePic="frontend/assets/images/defaultProfilePic.png";
+            $profilePic="frontend/assets/images/default.jpg";
         }
         $query=$this->con->prepare("INSERT INTO users (firstName,lastName,email,password,profilePic,username)
                                  VALUES(:fn,:ln,:em,:pw,:pic,:un)");

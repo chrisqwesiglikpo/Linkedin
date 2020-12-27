@@ -22,7 +22,7 @@
       setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
       $_SESSION["userLoggedIn"]=$user_id;
 
-      redirect_to(url_for("home"));
+      redirect_to(url_for("home.php"));
     }
 
   }
@@ -83,8 +83,6 @@
                           <label class="form__label--floating" for="cpassword" aria-hidden="true">Confirm Password</label>
                           <div class="check_pass">
                               <input id="cpassword" name="cpassword" type="password"  required>
-                              <!-- An element to toggle between password visibility -->
-                              <input type="checkbox" onclick="myFunction()" class="checkbox">
                           </div>
                           <div error-for="password" id="error-for-password" class="form__label--error" role="alert" aria-live="assertive"></div>
                       </div>

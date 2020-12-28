@@ -696,6 +696,13 @@ aside.profile-right-wrap {
     border: none!important;
     box-shadow: var(--elevation-raised)!important;
 }
+.artdeco-modal-step{
+    max-width: 744px;
+    background-color: var(--color-background-container)!important;
+    border-radius: var(--corner-radius-medium)!important;
+    border: none!important;
+    box-shadow: var(--elevation-raised)!important;
+}
 .artdeco-modal {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
@@ -710,7 +717,25 @@ aside.profile-right-wrap {
     height: 461px;
     max-height: calc(100vh - 64px);
     border-radius: 2px;
+   
 }
+.artdeco-modal-step {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 52px;
+    height: 461px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
+    display:none;
+}
+
 .header__topcard {
     display: flex;
     justify-content: space-between;
@@ -790,6 +815,11 @@ input.profile-topcard-background-image-edit__input {
 .artdeco-modal__dismiss:hover{
     background-color: var(--color-background-none-tint-hover);
     color: var(--color-text-low-emphasis-shift);
+}
+/* Image Preview */
+#imagePreview{
+    display:block;
+    max-width:100%;
 }
 /* End of Modal */
 /* End of Main Area */

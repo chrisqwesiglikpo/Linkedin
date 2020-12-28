@@ -635,3 +635,43 @@ button {
     align-items: end;
 }
 /* End of Header styles */
+/* Main Area */
+.main-area {
+    display: flex;
+    margin-left: 166px;
+    margin-top: 50px;
+}
+/* Profile Styles */
+.main-area .profile-left-wrap{
+    flex-basis:70%;
+}
+.profile-left-wrap .profile-cover-wrap{
+    border-top-left-radius: var(--corner-radius-medium);
+    border-top-right-radius: var(--corner-radius-medium);
+    background:50% / cover;
+    height:197.984px;
+    background-size:100%;
+}
+aside.profile-right-wrap {
+    flex-basis: 30%;
+}
+.upload-cov-opt-wrap{
+    position: relative;
+}
+.add-cover-photo {
+    position: absolute;
+    line-height: 1.5;
+    top: 24px;
+    width: 30px;
+    height: 30px;
+    right: 24px;
+    background-color: var(--voyager-color-action-on-dark);
+    text-align: center;
+    border-radius: var(--corner-radius-full)!important;
+    cursor: pointer;
+}
+.add-cover-photo svg {
+    margin-top: 6px;
+    fill: var(--color-action);
+}
+/* End of Main Area */

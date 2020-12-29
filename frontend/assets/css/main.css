@@ -856,7 +856,6 @@ input.profile-topcard-background-image-edit__input {
     border-radius: 49.9%;
     background-color: rgba(243,246,248,.94);
     border: 4px solid var(--white,#fff);
-    /* box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,.15), 0 1.5px 3px 0 rgba(0,0,0,.15); */
 }
 .pv-top-card__photo-wrapper.ml0 {
     background-color: var(--color-background-container-tint);
@@ -914,7 +913,6 @@ button.edit-profile-icon:hover{
     padding-bottom: 24px;
     padding-right: 24px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 .p-header-sch{
@@ -941,9 +939,20 @@ p.t-24.t-black.t-normal {
 .a-modal-pic-wrapper {
     margin: 2rem 0;
 }
-
-/* .t-normal{
+.pv-top-card--list-bullet>:not(:last-child)::after {
+    content: "\00B7";
+    margin: 0;
+    padding: 0 4px;
+    color: var(--black,#000);
     font-weight: 400;
-} */
+}
+ul.pv-top-card--list.inline-flex.pv-top-card--list-bullet {
+    display: inline-flex;
+}
+
+.contact-link:hover{
+    text-decoration: underline;
+}
+
 /* End of Profile Style */
 /* End of Main Area */

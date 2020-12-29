@@ -953,6 +953,17 @@ ul.pv-top-card--list.inline-flex.pv-top-card--list-bullet {
 .contact-link:hover{
     text-decoration: underline;
 }
-
+a.global-nav__primary-link.ember-view.active{
+    position: relative !important;
+}
+.global-nav__primary-link.active:after, a.global-nav__primary-link.active:after {
+    border-bottom: 2px solid var(--white,#fff);
+    content: "";
+    bottom: 5px;
+    border-color: var(--color-icon-nav-active)!important;
+    left: 0;
+    position: absolute !important;
+    width: 100%;
+}
 /* End of Profile Style */
 /* End of Main Area */

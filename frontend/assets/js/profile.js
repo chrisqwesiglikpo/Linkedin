@@ -1,11 +1,13 @@
 $(document).ready(function(){
     var cropper;
     let coverBtn=document.getElementById("cover-photo");
+    let stepModal=document.querySelector(".artdeco-modal");
     let previewContainer=document.querySelector(".artdeco-modal-step");
     let modal=document.getElementById("modal");
     $(document).on("click","#cover-photo",function(){
         previewContainer.style.display="none";
         modal.style.display="block";
+        stepModal.style.display="block";
     });
 
     $(document).on("click",".artdeco-modal__dismiss",function(){
@@ -36,7 +38,7 @@ $(document).ready(function(){
                 }
 
                 cropper=new Cropper(image,{
-                    aspectRatio:1/1,
+                    aspectRatio:16/9,
                     background:false
                 });
             }

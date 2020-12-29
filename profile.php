@@ -174,8 +174,8 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                     </button>
                 </div>
                 <div class="modal-body__topcard">
-                        <div class="imagePreviewContainer" id="imagePreviewContainer">
-                                <img src="" alt="" id="imagePreview">
+                        <div class="imagePreviewContainer" id="imagePreviewContainer" style="height: 297px; width: 716px;">
+                                <img src="" alt="" id="imagePreview" style="width:100%;height:100%;object-fit:cover;">
                         </div>
                         <!-- <div class="modal-body__topcard-container">
                            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="230" height="230" viewBox="0 0 230 140" data-supported-dps="230x230">

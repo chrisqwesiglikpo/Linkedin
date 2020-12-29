@@ -22,6 +22,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
+    <div class="u_p_id" data-uid="<?php echo $user_id; ?>"  data-pid="<?php echo $profileId ?>"></div>
     <header id="global-nav" class="global-nav">
         <div class="global-nav__content">
             <div class="top-left-part">
@@ -74,7 +75,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                     </li>
                     <li class="global-nav-primary-item">
                         <button type="button" class="global-nav__me-wrapper global-nav__primary-link">
-                            <img src="<?php echo url_for('frontend/assets/images/default.svg'); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>" width="24px" height="24px" class="global-nav__me-photo">
+                            <img src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>" width="24px" height="24px" class="global-nav__me-photo">
                             <span class="global-nav__primary-link-text"> Me
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
                                      <path d="M1 5l7 4.61L15 5v2.39L8 12 1 7.39z"/>
@@ -90,7 +91,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
     <main class="core-rail">
         <div class="main-area">
                 <div class="profile-left-wrap">
-                    <div class="profile-cover-wrap" style="background-image:url(<?php echo url_for('frontend/assets/images/backgroundImage.svg'); ?>)">
+                    <div class="profile-cover-wrap" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)">
                         <div class="upload-cov-opt-wrap">
                         <?php if($profileId ==$user_id){ ?>
                                 <div class="add-cover-photo" id="cover-photo">
@@ -207,7 +208,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                         </p> -->
                 </div>
                 <div class="modal__footer-topcard">
-                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view imageUploadButton"><!---->
                         <span class="artdeco-button__text">
                              Apply
                            

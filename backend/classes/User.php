@@ -183,7 +183,7 @@ class User{
         $allowed  = array('image/png', 'image/jpeg', 'image/jpg');
 
         if(in_array($fileInfo['mime'], $allowed)){
-            $path_directory = $_SERVER['DOCUMENT_ROOT']."/Twirrer/frontend/profileCover/".$userid.'/';
+            $path_directory = $_SERVER['DOCUMENT_ROOT']."/LinkedIn/frontend/profileCover/".$userid.'/';
   
             if(!file_exists($path_directory) && !is_dir($path_directory)){
                 mkdir($path_directory, 0777, true);
@@ -191,7 +191,7 @@ class User{
             }
 
             $folder   = "frontend/profileCover/".$userid.'/'.substr(md5(time().mt_rand()), 2,25).'.'.$ext;
-            $path_file=$_SERVER['DOCUMENT_ROOT']."/Twirrer/".$folder;
+            $path_file=$_SERVER['DOCUMENT_ROOT']."/LinkedIn/".$folder;
 
 
             if($errors===0){

@@ -67,14 +67,19 @@ class Account{
     }
     public function insertUserDetails($fn,$ln,$un,$em,$pw){
         $pw=password_hash($pw,PASSWORD_BCRYPT,['cost'=>10]);
-        $rand=rand(0,1);
+        $rand=rand(0,2);
         if($rand==0){
             $profilePic="frontend/assets/images/defaultPic.png";
+            $profileCov="frontend/assets/images/backgroundImage.svg";
         }else if($rand==1){
             $profilePic="frontend/assets/images/default.jpg";
+            $profileCov="frontend/assets/images/backgroundImage.svg";
+        }else if($rand==2){
+            $profilePic="frontend/assets/images/default.svg";
+            $profileCov="frontend/assets/images/backgroundImage.svg";
         }
-        $query=$this->con->prepare("INSERT INTO users (firstName,lastName,email,password,profilePic,username)
-                                 VALUES(:fn,:ln,:em,:pw,:pic,:un)");
+        $query=$this->con->prepare("INSERT INTO users (firstName,lastName,email,password,profilePic,profileCover,username)
+                                 VALUES(:fn,:ln,:em,:pw,:pic,:cover,:un)");
         $query->bindParam(":fn",$fn,PDO::PARAM_STR);
         $query->bindParam(":ln",$ln,PDO::PARAM_STR);
         $query->bindParam(":un",$un,PDO::PARAM_STR);
@@ -82,6 +87,7 @@ class Account{
         $query->bindParam(":pw",$pw,PDO::PARAM_STR);
         // $query->bindParam(":screenName",$un,PDO::PARAM_STR);
         $query->bindParam(":pic",$profilePic,PDO::PARAM_STR);
+        $query->bindParam(":cover",$profileCov,PDO::PARAM_STR);
 
        return $query->execute();
     }

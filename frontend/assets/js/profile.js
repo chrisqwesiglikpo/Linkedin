@@ -132,35 +132,31 @@ $(document).ready(function(){
 
     $(".profileUploadButton").click(function(e){
         var name = document.querySelector("#photoUpload").files[0];
-         console.log(name,u_id);
-    //     let canvas=cropper.getCroppedCanvas();
-    //     if(canvas==null){
-    //        alert("Could not upload image.Make sure it is an image file.");
-    //        return;
-    //     }
-    //    canvas.toBlob((blob)=>{
-    //     let formData=new FormData();
-    //         formData.append("croppedCoverImage",blob);
-    //         formData.append("userId",u_id);
-    //         $.ajax({
-    //             url:"http://localhost/linkedIn/backend/ajax/profilePhoto.php",
-    //             type:"POST",
-    //             cache:false,
-    //             processData:false,
-    //             data:formData,
-    //             contentType:false,
-    //             success:(data)=> {
-    //                 let previewContainer=document.querySelector(".artdeco-modal-step");
-    //                 let modal=document.getElementById("modal");
-    //                 $('.profile-cover-wrap').css('background-image', 'url(' + data + ')');
-    //                 modal.style.display="none";
-    //                 previewContainer.style.display="none";
+        //  console.log(name,u_id);
+        let canvas=cropper.getCroppedCanvas();
+        if(canvas==null){
+           alert("Could not upload image.Make sure it is an image file.");
+           return;
+        }
+       canvas.toBlob((blob)=>{
+        let formData=new FormData();
+            formData.append("croppedImage",blob);
+            formData.append("userId",u_id);
+            $.ajax({
+                url:"http://localhost/linkedIn/backend/ajax/profilePhoto.php",
+                type:"POST",
+                cache:false,
+                processData:false,
+                data:formData,
+                contentType:false,
+                success:(data)=> {
+                    location.reload(true);
                     
-    //             }
+                }
                 
-    //         });
+            });
 
-    //    });
+       });
     });
 
 

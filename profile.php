@@ -122,6 +122,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                         </div>
                         <div class="cover-photo-rest-wrap">
                                <?php if($profileId ==$user_id){ ?>
+                                <?php if($user->profileEdited=='0'){ ?>
                                 <div class="pv-top-card--photo text-align-left">
                                     <div class="pv-top-card__photo-wrapper ml0">
                                       <div class="profile-pic">
@@ -131,7 +132,17 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                                       </div>
                                     </div>
                                 </div>
-                                
+                                <?php }else if($user->profileEdited=='1'){ ?>
+                                    <div class="dont-add-profile-photo">
+                                        <div class="pv-top-card--profile-photo">
+                                            <div class="pv-top-card__profile-photo-wrapper ml0">
+                                            <div class="profile-pic-user">
+                                                <img src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $profileData->firstName." ".$profileData->lastName; ?>" title="<?php echo $profileData->firstName." ".$profileData->lastName; ?>">
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 
                                 <?php }else{ ?>
                                 <div class="dont-add-profile-photo">

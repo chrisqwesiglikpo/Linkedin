@@ -678,7 +678,7 @@ aside.profile-right-wrap {
 }
 /* End of Profile */
 /* Modal */
-.modal {
+.modal,.modal-pic {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     left: 0;
@@ -720,6 +720,21 @@ aside.profile-right-wrap {
     max-height: calc(100vh - 64px);
     border-radius: 2px;
    
+}
+.artdeco-modal-pic {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 52px;
+    height: 422px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
 }
 .artdeco-modal-step {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
@@ -819,7 +834,7 @@ input.profile-topcard-background-image-edit__input {
     color: var(--color-text-low-emphasis-shift);
 }
 /* Image Preview */
-#imagePreview{
+.imagePreview{
     display:block;
     max-width:100%;
 }
@@ -902,6 +917,9 @@ button.edit-profile-icon:hover{
     align-items: center;
     justify-content: space-between;
 }
+.p-header-sch{
+    margin-right:7rem;
+}
 .p-header-sch h2{
     color: var(--color-text);
     font-size:1.4rem;
@@ -916,6 +934,14 @@ li.t-black{
 h2.mt1.t-18.t-black.t-normal.break-words {
     font-weight: 400;
 }
+p.t-24.t-black.t-normal {
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+.a-modal-pic-wrapper {
+    margin: 2rem 0;
+}
+
 /* .t-normal{
     font-weight: 400;
 } */

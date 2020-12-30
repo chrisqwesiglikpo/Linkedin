@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 07:48 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Dec 30, 2020 at 11:06 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,9 +38,11 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`id`, `token`, `user_id`) VALUES
-(4, '4acb36601304880626eaaae9bee34f6e260109da', 1),
-(5, '1c33dbc00dce2a10662c4a94b045d66c3b9efec9', 4),
-(6, 'e288375fe4175d8f259f255d5b631de8d9e35d0f', 5);
+(1, 'abb727e32f41d48387e78b31e3a3c1dd9032cefe', 1),
+(2, '33df8320189964142eabecec4604b16d5a0eb2d6', 2),
+(3, '66f2a1cf779f7851a585cb5189185c41ed68c707', 3),
+(4, 'ec441636c18bcfb537dc06801aceedbae212d88c', 4),
+(5, 'c2c5764b824dceb293f1dc713f86f9501d4efba7', 5);
 
 -- --------------------------------------------------------
 
@@ -55,6 +57,7 @@ CREATE TABLE `users` (
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
   `profilePic` varchar(250) NOT NULL,
+  `profileEdited` tinyint(4) NOT NULL,
   `profileCover` varchar(250) NOT NULL,
   `following` int(11) NOT NULL,
   `followers` int(11) NOT NULL,
@@ -66,10 +69,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `password`, `profilePic`, `profileCover`, `following`, `followers`, `username`, `signUpDate`) VALUES
-(1, 'Christopher', 'Glikpo', 'chrisqwesi@gmail.com', '$2y$10$Qnr5fpcL02DRVRXDcUfjk.kG89r57L0iqVtQa/xERIhIlLmil/KVy', 'frontend/assets/images/defaultPic.png', '', 0, 0, 'christopherglikpo', '2020-12-27'),
-(4, 'Felix', 'Glikpo', 'felixglikpo@gmail.com', '$2y$10$LlIXIEo3kFJ3bCYsx4jRh.ZvANDx/vlDdqZNfiO.poFulF7UF8rR.', 'frontend/assets/images/defaultPic.png', '', 0, 0, 'felixglikpo', '2020-12-28'),
-(5, 'Cornelia', 'Glikpo', 'corneliaglikpo@gmail.com', '$2y$10$iJAnJ/0JH6cb10n9y74Qu.crnf8kCpkfc7eks2AX4dw4yaehTWIYi', 'frontend/assets/images/defaultPic.png', '', 0, 0, 'corneliaglikpo', '2020-12-28');
+INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `password`, `profilePic`, `profileEdited`, `profileCover`, `following`, `followers`, `username`, `signUpDate`) VALUES
+(1, 'Christopher', 'Glikpo', 'chrisqwesi@gmail.com', '$2y$10$kQNuHJ8zdkAQc2q1lJsAgebdQP8EmuADiQANkZ0WT1wgkI0eyEZLu', 'frontend/assets/images/default.svg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'christopherglikpo', '2020-12-30'),
+(2, 'Daniel', 'Laryea', 'daniellaryea@gmail.com', '$2y$10$5cAzaf/alad/FvdLJXE5jOiU64hSRz/2RUuXKmGRlo8kOPejuer2G', 'frontend/assets/images/default.jpg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'daniellaryea', '2020-12-30'),
+(3, 'Felix', 'Glikpo', 'felixglikpo@gmail.com', '$2y$10$g5d3mjRwQvkoFYk.9AT6MOIEGYFivfZfB1Ac.wFZqe9mrRpOeRxPi', 'frontend/assets/images/default.jpg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'felixglikpo', '2020-12-30'),
+(4, 'Abigail', 'Tetteh', 'abigail@gmail.com', '$2y$10$Zcn9nPSlmPSyGdIQ3jtDceag4nSd4ejjMuQWpnnDh2mo618JfkkfS', 'frontend/assets/images/defaultPic.png', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'abigailtetteh', '2020-12-30'),
+(5, 'Belinda', 'Tetteh', 'belinda@gmail.com', '$2y$10$L1LPJ9G3zPCDiJkCrFuhV.3TBeP4Lx6Olrh8WtW1hMlYpLG3O9g8.', 'frontend/assets/images/default.jpg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'belindatetteh', '2020-12-30');
 
 --
 -- Indexes for dumped tables
@@ -96,7 +101,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `token`
 --
 ALTER TABLE `token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

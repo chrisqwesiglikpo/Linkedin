@@ -11,16 +11,16 @@
 if(isset($_GET['username']) == true && empty($_GET['username']) === false){
     $username =h($_GET['username']);
     $profileId = $loadFromUser->userIdByUsername($username);
-    // if(empty($profileId)){
-    //     redirect_to(url_for('profile'));
-    // }
+    if(empty($profileId)){
+        redirect_to(url_for('profile'));
+    }
 }
 else{
 $profileId =$user_id;
 }
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
- $page_title="Feed | LinkedIn"; 
+ $page_title="Notifications | LinkedIn"; 
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -47,9 +47,8 @@ $profileData = $loadFromUser->userData($profileId);
                 <ul class="global-nav__primary-items">
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg id="global-nav-icon--mercado__home--active" class="nav-icon"  height="24" width="24">
-                            <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
-                            <path d="m20 2h-3v3.2l3 1.9z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                          <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
                         </svg>
                                  <span class="global-nav__primary-link-text">Home</span>
                         </a>
@@ -80,8 +79,13 @@ $profileData = $loadFromUser->userData($profileId);
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('notifications/'); ?>" class="global-nav__primary-link ember-view">
-                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                           <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
                                <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"/>
+                            </svg> -->
+                            <svg id="global-nav-icon--mercado__notifications--active" class="nav-icon" height="24" width="24">
+                                <path d="M21.4 17L20.7 15.6L5.2 12.2L4 13.1C3 13.9 2.4 14.7 2.2 15.6L2 16.6L21.7 21L21.9 20C22 19.7 22 19.5 22 19.2C22 18.5 21.8 17.8 21.4 17Z"></path>
+                                <path d="M20.5 8.8C20.8 5.7 18.7 2.8 15.6 2.1C15.1 2 14.6 2 14.2 2C11.6 2 9.19999 3.6 8.29999 6.1L6.29999 11.4L20.1 14.5L20.5 8.8Z"></path>
+                                <path d="M11 20C11 21.1 11.9 22 13 22C14.1 22 15 21.1 15 20C15 19.8 15 19.7 14.9 19.5L11.4 18.7C11.2 19.1 11 19.5 11 20Z"></path>
                             </svg>
                             <span class="global-nav__primary-link-text">Notifications</span>
                         </a>

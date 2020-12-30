@@ -11,16 +11,16 @@
 if(isset($_GET['username']) == true && empty($_GET['username']) === false){
     $username =h($_GET['username']);
     $profileId = $loadFromUser->userIdByUsername($username);
-    // if(empty($profileId)){
-    //     redirect_to(url_for('profile'));
-    // }
+    if(empty($profileId)){
+        redirect_to(url_for('profile'));
+    }
 }
 else{
 $profileId =$user_id;
 }
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
- $page_title="Feed | LinkedIn"; 
+ $page_title="Jobs | LinkedIn"; 
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -47,9 +47,8 @@ $profileData = $loadFromUser->userData($profileId);
                 <ul class="global-nav__primary-items">
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg id="global-nav-icon--mercado__home--active" class="nav-icon"  height="24" width="24">
-                            <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
-                            <path d="m20 2h-3v3.2l3 1.9z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                          <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
                         </svg>
                                  <span class="global-nav__primary-link-text">Home</span>
                         </a>
@@ -64,10 +63,11 @@ $profileData = $loadFromUser->userData($profileId);
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('jobs/'); ?>" class="global-nav__primary-link ember-view">
-                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                                  <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"/>
+                                <svg id="global-nav-icon--mercado__jobs--active"  class="nav-icon"  height="24" width="24">
+                                    <path d="m7 14c-1.6 0-3-1-3.7-2.4l-1.3-3.1v8.5c0 1.7 1.3 3 3 3h14c1.7 0 3-1.3 3-3v-3z"></path>
+                                    <path d="m22.8 10.2-1.8-4.2h-3.9v-1c0-1.7-1.3-3-3-3h-4c-1.7 0-3 1.3-3 3v1h-5.1l2.2 5.2c.5 1.1 1.6 1.8 2.8 1.8h14c1.4 0 2.4-1.5 1.8-2.8zm-7.7-4.2h-6v-1c0-.6.4-1 1-1h4c.6 0 1 .4 1 1z"></path>
                                 </svg>
-                                 <span class="global-nav__primary-link-text">Jobs</span>
+                                <span class="global-nav__primary-link-text">Jobs</span>
                         </a>
                     </li>
                     <li class="global-nav-primary-item">

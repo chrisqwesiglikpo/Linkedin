@@ -11,16 +11,16 @@
 if(isset($_GET['username']) == true && empty($_GET['username']) === false){
     $username =h($_GET['username']);
     $profileId = $loadFromUser->userIdByUsername($username);
-    // if(empty($profileId)){
-    //     redirect_to(url_for('profile'));
-    // }
+    if(empty($profileId)){
+        redirect_to(url_for('profile'));
+    }
 }
 else{
 $profileId =$user_id;
 }
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
- $page_title="Feed | LinkedIn"; 
+ $page_title="Messaging | LinkedIn"; 
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -47,9 +47,8 @@ $profileData = $loadFromUser->userData($profileId);
                 <ul class="global-nav__primary-items">
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg id="global-nav-icon--mercado__home--active" class="nav-icon"  height="24" width="24">
-                            <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
-                            <path d="m20 2h-3v3.2l3 1.9z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                          <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
                         </svg>
                                  <span class="global-nav__primary-link-text">Home</span>
                         </a>
@@ -71,10 +70,10 @@ $profileData = $loadFromUser->userData($profileId);
                         </a>
                     </li>
                     <li class="global-nav-primary-item">
-                        <a href="<?php echo url_for('messaging/thread/new/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                           <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"/>
-                        </svg>
+                        <a href="<?php echo url_for('messaging/thread/new/'); ?>" class="global-nav__primary-link ember-view active">
+                            <svg id="global-nav-icon--mercado__messaging--active" class="nav-icon" height="24" width="24">
+                                <path clip-rule="evenodd" d="m11.99 2.00003h3.996c.7888-.00263 1.5704.15062 2.3.45097.7295.30035 1.3926.74189 1.9513 1.29931.5587.55741 1.0021 1.21973 1.3045 1.94899.3025.72926.4582 1.51112.4582 2.30073v.48c-.0007.99073-.2465 1.96587-.7154 2.83837-.469.8724-1.1464 1.6151-1.9719 2.1616l-.3297.22c-.0773-1.804-.848-3.5083-2.1512-4.75689-1.3032-1.24856-3.0379-1.94474-4.8418-1.94308h-3.99599c-.65929.00095-1.31514.09522-1.94805.28.17568-1.45488.87721-2.79509 1.97223-3.76778s2.50781-1.51059 3.97181-1.51222zm-3.996 6h3.996c1.5897 0 3.1143.63214 4.2384 1.75736 1.1241 1.12521 1.7556 2.65131 1.7556 4.24261v.48c-.0007.9908-.2465 1.9659-.7154 2.8383-.4689.8725-1.1464 1.6152-1.9719 2.1617l-5.30469 3.52v-3h-1.99801c-1.5897 0-3.1143-.6321-4.2384-1.7573-1.12409-1.1252-1.7556-2.6514-1.7556-4.2427s.63151-3.1174 1.7556-4.24261c1.1241-1.12522 2.6487-1.75736 4.2384-1.75736zm-1.55401 6.83147c.16428.1099.35743.1685.55501.1685.26496 0 .51905-.1053.7064-.2929.18735-.1875.2926-.4419.2926-.7071 0-.1978-.05859-.3911-.16836-.5555-.10977-.1645-.26579-.2927-.44833-.3683-.18255-.0757-.38341-.0955-.5772-.057-.19379.0386-.37179.1339-.51151.2737-.13971.1399-.23485.3181-.2734.512-.03855.194-.01876.3951.05685.5778s.20365.3389.36794.4488zm2.997 0c.16429.1099.35743.1685.55502.1685.26499 0 .51909-.1053.70639-.2929.1874-.1875.2926-.4419.2926-.7071 0-.1978-.0586-.3911-.1684-.5555-.1097-.1645-.2657-.2927-.4483-.3683-.1825-.0757-.3834-.0955-.57719-.057-.19379.0386-.37179.1339-.5115.2737-.13972.1399-.23486.3181-.27341.512-.03855.194-.01876.3951.05685.5778s.20366.3389.36794.4488zm2.99701 0c.1643.1099.3574.1685.555.1685.265 0 .5191-.1053.7064-.2929.1874-.1875.2926-.4419.2926-.7071 0-.1978-.0586-.3911-.1684-.5555-.1097-.1645-.2657-.2927-.4483-.3683-.1825-.0757-.3834-.0955-.5772-.057-.1938.0386-.3718.1339-.5115.2737-.1397.1399-.2349.3181-.2734.512-.0385.194-.0188.3951.0569.5778.0756.1827.2036.3389.3679.4488z"></path>
+                            </svg>
                             <span class="global-nav__primary-link-text">Messaging</span>
                         </a>
                     </li>

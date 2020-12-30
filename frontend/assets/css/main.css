@@ -965,5 +965,11 @@ a.global-nav__primary-link.ember-view.active{
     position: absolute !important;
     width: 100%;
 }
+a.active{
+    color: var(--color-icon-nav-active)!important;
+}
+a.active svg{
+    fill: var(--color-icon-nav-active)!important;
+}
 /* End of Profile Style */
 /* End of Main Area */

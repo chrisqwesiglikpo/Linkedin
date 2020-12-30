@@ -8,6 +8,7 @@ RewriteRule ^messages/([0-9]+)/?$ chat.php?chatId=$1
 RewriteRule ^settings/account/?$ account.php
 RewriteRule ^settings/password/?$ password.php
 RewriteRule ^i/notifications/?$ notification.php
+RewriteRule ^messaging/thread/new/?$ messaging.php
 
 
 RewriteRule ^hashtag/([a-zA-Z0-9_-]+)/?$ hashtag.php?hashtag=$1  [QSA,L]

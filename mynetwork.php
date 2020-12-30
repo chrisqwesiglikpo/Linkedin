@@ -11,16 +11,16 @@
 if(isset($_GET['username']) == true && empty($_GET['username']) === false){
     $username =h($_GET['username']);
     $profileId = $loadFromUser->userIdByUsername($username);
-    // if(empty($profileId)){
-    //     redirect_to(url_for('profile'));
-    // }
+    if(empty($profileId)){
+        redirect_to(url_for('profile'));
+    }
 }
 else{
 $profileId =$user_id;
 }
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
- $page_title="Feed | LinkedIn"; 
+ $page_title="LinkedIn"; 
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -47,17 +47,22 @@ $profileData = $loadFromUser->userData($profileId);
                 <ul class="global-nav__primary-items">
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg id="global-nav-icon--mercado__home--active" class="nav-icon"  height="24" width="24">
-                            <path d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"></path>
-                            <path d="m20 2h-3v3.2l3 1.9z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                          <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
                         </svg>
                                  <span class="global-nav__primary-link-text">Home</span>
                         </a>
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('mynetwork/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
                            <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"/>
+                        </svg> -->
+                        <svg id="global-nav-icon--mercado__my-network--active" height="24" width="24" class="nav-icon" >
+                            <path d="m16.5 11c-2.485 0-4.5-2.015-4.5-4.5s2.015-4.5 4.5-4.5 4.5 2.015 4.5 4.5-2.015 4.5-4.5 4.5z"></path>
+                            <path d="m21 16c0-1.657-1.343-3-3-3h-3c-1.657 0-3 1.343-3 3v6h9z"></path>
+                            <path d="m3 9.5c0 1.933 1.566 3.5 3.5 3.5s3.5-1.567 3.5-3.5-1.566-3.5-3.5-3.5-3.5 1.567-3.5 3.5z"></path>
+                            <path d="m10 17.5c0-1.381-1.119-2.5-2.5-2.5h-2c-1.381 0-2.5 1.119-2.5 2.5v4.5h7z"></path>
                         </svg>
                         <span class="global-nav__primary-link-text">My Network</span>
                         </a>

@@ -193,7 +193,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                     </button>
                 </div>
                 <div class="modal__footer-topcard">
-                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view profileUploadButton"><!---->
+                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view imageUploadButton"><!---->
                         <span class="artdeco-button__text">
                              Apply
                            

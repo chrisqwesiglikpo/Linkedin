@@ -222,11 +222,12 @@ $(document).ready(function(){
                 data:formData,
                 contentType:false,
                 success:(data)=> {
-                    let previewContainer=document.querySelector(".artdeco-modal-step");
-                    let modal=document.getElementById("modal");
-                    $('.profile-cover-wrap').css('background-image', 'url(' + data + ')');
-                    modal.style.display="none";
-                    previewContainer.style.display="none";
+                    location.reload();
+                    // let previewContainer=document.querySelector(".artdeco-modal-step");
+                    // let modal=document.getElementById("modal");
+                    // $('.profile-cover-wrap').css('background-image', 'url(' + data + ')');
+                    // modal.style.display="none";
+                    // previewContainer.style.display="none";
                     
                 }
                 

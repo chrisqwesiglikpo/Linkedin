@@ -6,6 +6,8 @@ $(document).ready(function(){
     let previewContainer=document.querySelector(".artdeco-modal-step");
     let modal=document.getElementById("modal");
     let modalPic=document.getElementById("modal-pic");
+    let  modalEditPic=document.querySelector(".modal-pic-edit");
+
     $(document).on("click","#cover-photo",function(){
         previewContainer.style.display="none";
         modal.style.display="block";
@@ -17,12 +19,24 @@ $(document).ready(function(){
         $(".profile-topcard-background-image-edit__input").val("");
     });
     
-    window.onclick=function(e){
-        if(e.target==modal){
+    // window.onclick=function(e){
+    //     if(e.target==modal){
+    //         modal.style.display="none";
+    //         $(".profile-topcard-background-image-edit__input").val("");
+    //     }
+    // }
+  $(window).on("click",function(e){
+      if(e.target==modal){
             modal.style.display="none";
-            $(".profile-topcard-background-image-edit__input").val("");
-        }
-    }
+           $(".profile-topcard-background-image-edit__input").val("");
+      }
+  })
+    // window.onclick=function(e){
+    //     if(e.target==modal){
+    //         modal.style.display="none";
+    //         $(".profile-topcard-background-image-edit__input").val("");
+    //     }
+    // }
     $(document).on("click",".pv-top-card__photo-wrapper",function(){
         let stepModalPic=document.querySelector(".artdeco-modal-pic");
         let previewProfileContainer=document.querySelector(".art-pic-step");
@@ -35,16 +49,35 @@ $(document).ready(function(){
         modalPic.style.display="none";
     });
 
+    $(document).on("click",".edit-profile-icon",function(){
+        modalEditPic.style.display="block";
+    });
+   
+    $(document).on("click",".artdeco-modal__dismiss",function(){
+        
+        $.post("http://localhost/linkedIn/backend/ajax/getUsernameByuserId.php",{userId:u_id},function(data){
+            window.location.href = "http://localhost/linkedIn/in/"+data;
+            modalEditPic.style.display="none";
+        })
+        
+    });
+  
+  $(window).on("click",function(e){
+          if(e.target==modalEditPic){
+            $.post("http://localhost/linkedIn/backend/ajax/getUsernameByuserId.php",{userId:u_id},function(data){
+                window.location.href = "http://localhost/linkedIn/in/"+data;
+                modalEditPic.style.display="none";
+            })
+        }
+  });
+ 
     window.onclick=function(e){
         if(e.target==modalPic){
             modalPic.style.display="none";
         }
     }
     $("#uploadCoverPhoto").change(function(e){
-        // let stepModal=document.querySelector(".artdeco-modal");
-        // let previewContainer=document.querySelector(".artdeco-modal-step");
-        // stepModal.style.display="none";
-        // previewContainer.style.display="block";
+       
         if(this.files && this.files[0]){
             let stepModal=document.querySelector(".artdeco-modal");
         let previewContainer=document.querySelector(".artdeco-modal-step");

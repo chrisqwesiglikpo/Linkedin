@@ -22,6 +22,7 @@ $profileId =$user_id;
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
 $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
+
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -85,9 +86,11 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                         </div>
                         <?php if($profileId ==$user_id){ ?>
                             <div class="right-icon">
-                                    <button class="edit-profile-icon" type="button">
-                                        <img src="<?php echo url_for('frontend/assets/images/penIcon.svg') ?>" alt="">
-                                    </button>
+                                  <a href="<?php echo url_for("in/".$user->username."/edit/intro"); ?>">
+                                        <button class="edit-profile-icon" type="button">
+                                            <img src="<?php echo url_for('frontend/assets/images/penIcon.svg') ?>" alt="">
+                                        </button>
+                                 </a>
                             </div>
                         <?php } ?>
                     </div>
@@ -113,7 +116,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
 
                                       </div>
                                <div class="p-header-sch">
-                                   <h2>University Of Ghana</h2>
+                                   <h2><a href="#">University Of Ghana</a></h2>
                                </div>
                             </div>
                     </div>
@@ -250,6 +253,101 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                 </div>
         </div>
     </div>
+   
+    <?php if(strpos($_SERVER['REQUEST_URI'], '/edit/intro')) :?>
+        <div class="modal-pic-edit" id="modal-pic" style="display:block">
+        <div class="artdeco-modal-pic" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+                <div class="header__topcard">
+                    <h2 id="profile-topcard-background-image-education-header">
+                        Edit intro
+                    </h2>
+                    <button aria-label="Dismiss" class="artdeco-modal__dismiss">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                           <path d="M14 3.41L9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p__edit-modal-body__topcard">
+                        <div class="profile-cover-wrap" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)" alt="Background Image">
+                                        <div class="edit-cover-photo" id="edit-cover-photo">
+                                           <label for="p__edit-profileCover">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#0a66c2;" width="16" height="16" focusable="false">
+                                                        <path d="M14 4h-1.75l-1-2h-6.5l-1 2H2a1 1 0 00-1 1v7a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 00-1-1zm-1 7H3V8h2a3 3 0 006 0h2v3zm-2.87-3A2.13 2.13 0 118 5.88 2.13 2.13 0 0110.13 8zM13 7h-2.18a3 3 0 00-5.64 0H3V6h2l1-2h4l1 2h2v1z" fill="#0a66c2;"></path>
+                                                </svg>
+                                           </label> 
+                                           <input type="file" id="p__edit-profileCover" class="p__edit-profileCover">
+                                        </div>
+                                        <div class="pr__edit-camera">
+                                                <div class="pr__edit-wrapper">
+                                                   <div class="pr__ed-wrapper">
+                                                        <label for="profile__edit-modal" class="pr__edit-wrapper-label">
+                                                            <img src="<?php echo url_for('frontend/assets/images/profileCamera.svg') ?>" alt="">
+                                                        </label>
+                                                        <input type="file" class="profile__edit-modal" id="profile__edit-modal">
+                                                   </div>
+                                                </div>
+                                        </div>
+                        </div> 
+                        <div class="pe-form-body__content">
+                            <form action="" class="pe-form__container">
+                                <div class="pe__wrapper">
+                                    <div class="pe-s-multi-field">
+                                        <div class="pe-top-card-form__name-field">
+                                          <label for="topcard-firstname" class="pe-form-field__label label-text required">First Name</label>
+                                          <input aria-required="true" name="firstName" maxlength="50" id="topcard-firstname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->firstName; ?>" autofocus>
+                                        </div>
+                                        <div class="pe-top-card-form__name-field">
+                                          <label for="topcard-lastname" class="pe-form-field__label label-text required">Last Name</label>
+                                          <input aria-required="true" name="lastName" maxlength="50" id="topcard-lastname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->lastName; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
+                                        <label for="topcard-headline" class="pe-form-field__label label-text required">Headline</label>
+                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;">Student at University of Ghana</textarea>
+                                    </div>
+                                    <div class="pe-form-field pe-form-field__country-region-picker relative ember-view">
+                                       <label for="location-country-region" class="pe-form-field__label required">Country/Region</label>
+                                       <input type="text" value="Ghana"  id="location-country-region">
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__education-field floating-label">
+                                       <label for="topcard-education" class="pe-form-field__label  label-text pe-form-field__label required">Education</label>
+                                       <input type="text" id="topcard-education" value="University of Ghana" name="topcard-education">
+                                    </div>
+                                    <div class="pe-form-field industry-field">
+                                       <label for="topcard-industry" class="pe-form-field__label required">Industry</label>
+                                       <select  id="topcard-industry" name="industry" class="ember-view">
+                                           <option value="">Choose an industry...</option>
+                                           <option value="account">Accounting</option>
+                                           <option value="airlines">Airlines/Aviation</option>
+                                           <option value="resolution">Alternative Dispute Resolution</option>
+                                           <option value="animation">Animation</option>
+                                       </select>
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__contact-info-field">
+                                        <label for="topcard-contact-info" class="pe-form-field__label">Contact info</label>
+                                        <div class="pe-top-card-form__contact-info display-flex align-items-center">
+                                            <p class="pe-top-card-form__contact-info-details t-14 t-black t-normal">Profile URL ,Email , WeChat ID</p>
+                                            <button type="button" class="pe-top-card-form__contact-info-edit-button artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--tertiary ember-view" id="ember">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#0a66c2" class="mercado-match" width="24" height="24" focusable="false">
+                                                    <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" fill="rgba(0, 0, 0, 0.35);" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>   
+                </div>
+                <div class="modal__footer-topcard">
+                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                        <span class="artdeco-button__text">
+                             Save
+                        </span>
+                    </button>
+                </div>
+        </div>
+    </div>
+    <?php endif; ?>
     
     <script src="<?php echo url_for('frontend/assets/js/profile.js');?>"></script>
 </body>

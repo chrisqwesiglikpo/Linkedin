@@ -1,5 +1,6 @@
 <?php
-class Account{
+include_once 'User.php';
+class Account extends User{
     protected $con;
     protected $hashed_password;
     public $password;

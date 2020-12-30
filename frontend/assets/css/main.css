@@ -691,6 +691,7 @@ aside.profile-right-wrap {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.75);/* Black w/ opacity */
   }
+  
 .artdeco-modal{
     max-width: 744px;
     background-color: var(--color-background-container)!important;
@@ -721,7 +722,7 @@ aside.profile-right-wrap {
     border-radius: 2px;
    
 }
-.artdeco-modal-pic {
+.artdeco-modal-pic,.artdeco-modal-pic-edit{
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
     position: relative;
@@ -735,6 +736,23 @@ aside.profile-right-wrap {
     height: 422px;
     max-height: calc(100vh - 64px);
     border-radius: 2px;
+   /* display:none; */
+}
+.artdeco-modal-pic-cover-edit {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 52px;
+    height: 422px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
+    display: none;
 }
 .artdeco-modal-step {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
@@ -810,6 +828,13 @@ span.artdeco-button__text {
     color: var(--color-text-shift-on-dark-flip);
     padding: 1rem;
     border-radius: 1.59rem!important;
+}
+.ed_p__head {
+    display: flex;
+    align-items: center;
+}
+button.back__edit {
+    margin-right: 1rem;
 }
 span.artdeco-button__text:hover{
     background-color: var(--voyager-color-action-hover);

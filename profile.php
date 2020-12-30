@@ -190,6 +190,10 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                         <div class="imagePreviewContainer" id="imagePreviewContainer" style="height: 297px; width: 716px;">
                                 <img src="" alt="" id="imagePreview" class="imagePreview" style="width:100%;height:100%;object-fit:cover;">
                         </div>
+                    </button>
+                </div>
+                <div class="modal__footer-topcard">
+                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view profileUploadButton"><!---->
                         <span class="artdeco-button__text">
                              Apply
                            
@@ -256,7 +260,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
    
     <?php if(strpos($_SERVER['REQUEST_URI'], '/edit/intro')) :?>
         <div class="modal-pic-edit" id="modal-pic" style="display:block">
-        <div class="artdeco-modal-pic" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+        <div class="artdeco-modal-pic-edit" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
                 <div class="header__topcard">
                     <h2 id="profile-topcard-background-image-education-header">
                         Edit intro
@@ -342,6 +346,37 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                     <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
                         <span class="artdeco-button__text">
                              Save
+                        </span>
+                    </button>
+                </div>
+        </div>
+        <div class="artdeco-modal-pic-cover-edit" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+                <div class="header__topcard">
+                   <div class="ed_p__head">
+                        <button class="back__edit" type="button">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                <path d="M9 4l-4.87 7H22v2H4.13L9 20H6.56L1 12l5.56-8z"/>
+                            </svg>
+                        </button>
+                        <h2 id="profile-topcard-background-image-education-header" class="p_h3">
+                            Background photo
+                        </h2>
+                   </div>
+                    <button aria-label="Dismiss" class="artdeco-modal__dismiss">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                           <path d="M14 3.41L9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p__edit-modal-body__topcard-bg">
+                        <div class="imagePreviewContainer" id="imagePreviewContainer" style="height: 297px; width: 716px;">
+                                <img src="" alt="" id="profileEditImagePreview" class="imagePreview" style="width:100%;height:100%;object-fit:cover;">
+                        </div>
+                </div>
+                <div class="modal__footer-topcard">
+                    <button data-control-name="background_image_education_upload" id="editPhoto" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                        <span class="artdeco-button__text">
+                             Apply
                         </span>
                     </button>
                 </div>

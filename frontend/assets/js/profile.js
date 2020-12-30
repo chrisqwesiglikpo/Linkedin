@@ -50,7 +50,9 @@ $(document).ready(function(){
     });
 
     $(document).on("click",".edit-profile-icon",function(){
+        // var odalPic=document.querySelector(".artdeco-modal-pic");
         modalEditPic.style.display="block";
+        // odalPic.style.display="block";
     });
    
     $(document).on("click",".artdeco-modal__dismiss",function(){
@@ -96,6 +98,76 @@ $(document).ready(function(){
 
                 cropper=new Cropper(image,{
                     aspectRatio:16/9,
+                    background:false
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $("#p__edit-profileCover").change(function(e){
+       
+        if(this.files && this.files[0]){
+            
+          let picE=document.querySelector(".artdeco-modal-pic-edit");
+          let previewContainer=document.querySelector(".artdeco-modal-pic-cover-edit");
+        //   let pHeader=document.querySelector(".p_h3");
+       
+        picE.style.display="none";
+        previewContainer.style.display="block";
+    //   console.log(pHeader);
+     
+            let reader=new FileReader();
+            reader.onload=function(e){
+
+                var image=document.getElementById("profileEditImagePreview");
+               
+                image.src=e.target.result;
+               
+            
+                if(cropper !==  undefined){
+                    cropper.destroy();
+                }
+
+                cropper=new Cropper(image,{
+                    aspectRatio:16/9,
+                    background:false
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    $("#profile__edit-modal").change(function(e){
+       
+        if(this.files && this.files[0]){
+           
+          let picE=document.querySelector(".artdeco-modal-pic-edit");
+          let previewContainer=document.querySelector(".artdeco-modal-pic-cover-edit");
+        let pHeader=document.querySelector(".p_h3");
+       
+        picE.style.display="none";
+        previewContainer.style.display="block";
+    //   console.log(pHeader);
+        pHeader.innerHTML="Profile Photo";
+
+    
+       
+   
+            let reader=new FileReader();
+            reader.onload=function(e){
+
+                var image=document.getElementById("profileEditImagePreview");
+               
+                image.src=e.target.result;
+               
+            
+                if(cropper !==  undefined){
+                    cropper.destroy();
+                }
+
+                cropper=new Cropper(image,{
+                    aspectRatio:1/1,
                     background:false
                 });
             }
@@ -192,6 +264,70 @@ $(document).ready(function(){
        });
     });
 
+    $("#editPhoto").click(function(e){
+        let pHeader=document.querySelector(".p_h3");
+        if(pHeader.innerText=="Profile Photo"){
+            var name = document.querySelector("#profile__edit-modal").files[0];
+            let canvas=cropper.getCroppedCanvas();
+            if(canvas==null){
+            alert("Could not upload image.Make sure it is an image file.");
+            return;
+            }
+        canvas.toBlob((blob)=>{
+            let formData=new FormData();
+                formData.append("croppedImage",blob);
+                formData.append("userId",u_id);
+                $.ajax({
+                    url:"http://localhost/linkedIn/backend/ajax/profilePhoto.php",
+                    type:"POST",
+                    cache:false,
+                    processData:false,
+                    data:formData,
+                    contentType:false,
+                    success:(data)=> {
+                        location.reload(true);
+                        
+                    }
+                    
+                });
+
+       });
+        }else if(pHeader.innerText=="Background photo"){
+         var name = document.querySelector("#p__edit-profileCover").files[0];
+        let pHeader=document.querySelector(".p_h3");
+        
+        //  console.log(name,u_id);
+        // alert(name);
+        let canvas=cropper.getCroppedCanvas();
+        if(canvas==null){
+           alert("Could not upload image.Make sure it is an image file.");
+           return;
+        }
+       canvas.toBlob((blob)=>{
+        let formData=new FormData();
+            formData.append("croppedCoverImage",blob);
+            formData.append("userId",u_id);
+            $.ajax({
+                url:"http://localhost/linkedIn/backend/ajax/profilePhoto.php",
+                type:"POST",
+                cache:false,
+                processData:false,
+                data:formData,
+                contentType:false,
+                success:(data)=> {
+                    location.reload(true);
+                    
+                }
+                
+            });
+
+       });
+        }
+    
+    });
+    $(document).on("click",".back__edit",function(){
+        location.reload(true);
+    });
 
    
 });

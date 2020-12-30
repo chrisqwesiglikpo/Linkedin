@@ -3,7 +3,7 @@
  $loadFromUser->preventAccess($_SERVER['REQUEST_METHOD'],realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
  if(is_post_request()){
-    // var_dump($_FILES['croppedImage']);
+  
      if(!empty($_FILES['croppedImage'])){
       $userid=$_POST['userId'];
     
@@ -14,7 +14,7 @@
       
      if(!empty($_FILES['croppedCoverImage'])){
       $userid=$_POST['userId'];
-    //  var_dump($_FILES['croppedCoverImage']);
+    
       $imagePath=$loadFromUser->cropCoverImageUpload($_FILES['croppedCoverImage'],$userid);
       $loadFromUser->update("users",$userid,array('profileCover'=>$imagePath));
       echo $imagePath;

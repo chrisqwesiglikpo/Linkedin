@@ -22,7 +22,6 @@ $profileId =$user_id;
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
 $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
-
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -321,10 +320,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                                        <label for="topcard-industry" class="pe-form-field__label required">Industry</label>
                                        <select  id="topcard-industry" name="industry" class="ember-view">
                                            <option value="">Choose an industry...</option>
-                                           <option value="account">Accounting</option>
-                                           <option value="airlines">Airlines/Aviation</option>
-                                           <option value="resolution">Alternative Dispute Resolution</option>
-                                           <option value="animation">Animation</option>
+                                            <?php echo $account->getCareers(); ?> 
                                        </select>
                                     </div>
                                     <div class="pe-form-field pe-top-card-form__contact-info-field">

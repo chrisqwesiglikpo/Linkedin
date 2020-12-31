@@ -722,7 +722,7 @@ aside.profile-right-wrap {
     border-radius: 2px;
    
 }
-.artdeco-modal-pic,.artdeco-modal-pic-edit{
+.artdeco-modal-pic{
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
     position: relative;
@@ -736,7 +736,21 @@ aside.profile-right-wrap {
     height: 422px;
     max-height: calc(100vh - 64px);
     border-radius: 2px;
-   /* display:none; */
+}
+.artdeco-modal-pic-edit {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 153px;
+    height: 440px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
 }
 .artdeco-modal-pic-cover-edit {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);

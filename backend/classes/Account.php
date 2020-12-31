@@ -168,6 +168,14 @@ class Account extends User{
             return false;
         }
     }
+    public function getCareers(){
+        $stmt=$this->con->prepare("SELECT * FROM `careers` ORDER BY category ASC");
+        $stmt->execute();
+        $data=$stmt->fetchAll(PDO::FETCH_OBJ);
+        foreach($data as $cat){
+           echo '<option value="'.$cat->id.'">'.$cat->category.'</option>';
+        }
+    }
     public function generateUsername($fn,$ln){
         if(!empty($fn) && !empty($ln)){
             if(!in_array(Constants::$firstNameCharacters,$this->errorArray) && !in_array(Constants::$lastNameCharacters,$this->errorArray)){

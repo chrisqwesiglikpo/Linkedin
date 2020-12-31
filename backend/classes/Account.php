@@ -71,10 +71,10 @@ class Account extends User{
         $rand=rand(0,2);
         if($rand==0){
             $profilePic="frontend/assets/images/defaultPic.png";
-            $profileCov="frontend/assets/images/backgroundImage.svg";
+            $profileCov="frontend/assets/images/coverPic.svg";
         }else if($rand==1){
-            $profilePic="frontend/assets/images/default.jpg";
-            $profileCov="frontend/assets/images/backgroundImage.svg";
+            $profilePic="frontend/assets/images/profileDefaultPic.svg";
+            $profileCov="frontend/assets/images/coverPic.svg";
         }else if($rand==2){
             $profilePic="frontend/assets/images/default.svg";
             $profileCov="frontend/assets/images/backgroundImage.svg";

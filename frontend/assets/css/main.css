@@ -620,7 +620,7 @@ button {
     color: var(--color-icon-nav);
 }
 .global-nav__me-photo {
-    background-color:transparent;
+    background-color: #b3b6b9;
     border-radius: 50%;
     border: 1px solid var(--cool-gray-40,#c7d1d8);
     height: 24px;
@@ -737,7 +737,7 @@ aside.profile-right-wrap {
     max-height: calc(100vh - 64px);
     border-radius: 2px;
 }
-.artdeco-modal-pic-edit {
+.artdeco-modal-pic-edit,.artdeco-modal-pic-contact-info {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
     position: relative;
@@ -752,6 +752,21 @@ aside.profile-right-wrap {
     max-height: calc(100vh - 64px);
     border-radius: 2px;
 }
+/* .artdeco-modal-pic-contact-info{
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 52px;
+    height: 422px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
+} */
 .artdeco-modal-pic-cover-edit {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
@@ -924,6 +939,7 @@ input.profile-topcard-background-image-edit__input {
     border-radius: 50%;
     height: 100%;
     object-fit: cover;
+    background: #b3b6b9;
 }
 .right-icon {
     position: absolute;

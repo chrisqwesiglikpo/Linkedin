@@ -271,7 +271,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
    
     <?php if(strpos($_SERVER['REQUEST_URI'], '/edit/intro')) :?>
         <div class="modal-pic-edit" id="modal-pic" style="display:block">
-        <div class="artdeco-modal-pic-edit" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+        <div class="artdeco-modal-pic-edit" style="display:none" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
                 <div class="header__topcard">
                     <h2 id="profile-topcard-background-image-education-header">
                         Edit intro
@@ -318,8 +318,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                                     </div>
                                     <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
                                         <label for="topcard-headline" class="pe-form-field__label label-text required">Headline</label>
-                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;">
-                                           <?php if(!empty($userProfileData->college)): ?>Student at <?php echo $userProfileData->college; ?>
+                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;"><?php if(!empty($userProfileData->college)): ?>Student at <?php echo $userProfileData->college; ?>
                                             <?php endif; ?>
                                         </textarea>
                                     </div>
@@ -388,6 +387,82 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                     <button data-control-name="background_image_education_upload" id="editPhoto" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
                         <span class="artdeco-button__text">
                              Apply
+                        </span>
+                    </button>
+                </div>
+        </div>
+        <div class="artdeco-modal-pic-contact-info" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+                <div class="header__topcard">
+                    <div class="ed_p__head">
+                         <button class="back___home-edit" type="button">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                  <path d="M9 4l-4.87 7H22v2H4.13L9 20H6.56L1 12l5.56-8z"/>
+                             </svg>
+                        </button>
+                        <h2 id="profile-topcard-background-image-education-header">
+                             Edit contact info
+                        </h2>
+                    </div>
+                    <button aria-label="Dismiss" class="artdeco-modal__dismiss">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                           <path d="M14 3.41L9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p__edit-modal-body__topcard">
+                        <div class="pe-form-body__content">
+                            <form action="" class="pe-form__container">
+                                <div class="pe__wrapper">
+                                    <div class="pe-s-multi-field">
+                                        <div class="pe-top-card-form__name-field">
+                                          <label for="topcard-firstname" class="pe-form-field__label label-text required">First Name</label>
+                                          <input aria-required="true" name="firstName" maxlength="50" id="topcard-firstname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->firstName; ?>" autofocus>
+                                        </div>
+                                        <div class="pe-top-card-form__name-field">
+                                          <label for="topcard-lastname" class="pe-form-field__label label-text required">Last Name</label>
+                                          <input aria-required="true" name="lastName" maxlength="50" id="topcard-lastname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->lastName; ?>">
+                                        </div>
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
+                                        <label for="topcard-headline" class="pe-form-field__label label-text required">Headline</label>
+                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;"><?php if(!empty($userProfileData->college)): ?>Student at <?php echo $userProfileData->college; ?>
+                                            <?php endif; ?>
+                                        </textarea>
+                                    </div>
+                                    <div class="pe-form-field pe-form-field__country-region-picker relative ember-view">
+                                       <label for="location-country-region" class="pe-form-field__label required">Country/Region</label>
+                                       <input type="text" value="<?php (!empty($userProfileData->country) ?  $userProfileData->country : "" ) ; ?>"  id="location-country-region">
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__education-field floating-label">
+                                       <label for="topcard-education" class="pe-form-field__label  label-text pe-form-field__label required">Education</label>
+                                       <input type="text" id="topcard-education" value="<?php (!empty($userProfileData->college) ? $userProfileData->college : "") ; ?>" name="topcard-education">
+                                    </div>
+                                    <div class="pe-form-field industry-field">
+                                       <label for="topcard-industry" class="pe-form-field__label required">Industry</label>
+                                       <select  id="topcard-industry" name="industry" class="ember-view">
+                                           <option value="">Choose an industry...</option>
+                                            <?php echo $account->getCareers(); ?> 
+                                       </select>
+                                    </div>
+                                    <div class="pe-form-field pe-top-card-form__contact-info-field">
+                                        <label for="topcard-contact-info" class="pe-form-field__label">Contact info</label>
+                                        <div class="pe-top-card-form__contact-info display-flex align-items-center">
+                                            <p class="pe-top-card-form__contact-info-details t-14 t-black t-normal">Profile URL ,Email , WeChat ID</p>
+                                            <button type="button" class="pe-top-card-form__contact-info-edit-button artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--tertiary ember-view" id="ember">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#0a66c2" class="mercado-match" width="24" height="24" focusable="false">
+                                                    <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" fill="rgba(0, 0, 0, 0.35);" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>   
+                </div>
+                <div class="modal__footer-topcard">
+                    <button data-control-name="background_image_education_upload" id="eprofile" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                        <span class="artdeco-button__text">
+                             Save
                         </span>
                     </button>
                 </div>

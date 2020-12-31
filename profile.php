@@ -22,6 +22,7 @@ $profileId =$user_id;
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
 $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
+$userProfileData=$loadFromUser->userProfileData($profileId);
 ?>
 <?php require_once "backend/shared/mainHeader.php"; ?>
 <body>
@@ -100,22 +101,33 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                                             <li class="inline t-24 t-black t-normal break-words"><?php echo $profileData->firstName." ".$profileData->lastName; ?></li>
                                         </ul>
                                         <h2 class="mt1 t-18 t-black t-normal break-words">
-                                             Student at University of Ghana
+                                          <?php  if(!empty($userProfileData->college)): ?>
+                                             Student at <?php echo $userProfileData->college; ?>
+                                          <?php endif; ?>
                                         </h2>
                                         <ul class="pv-top-card--list inline-flex pv-top-card--list-bullet">
                                             <li class="inline">
-                                             Greater Accra, Ghana
+                                            <?php  if(!empty($userProfileData->country)): ?>
+                                             <!-- Greater Accra, Ghana --><?php echo $userProfileData->country; ?>
+                                             <?php endif; ?>
                                             </li>
+                                            <?php  if(!empty($userProfileData->country)): ?>
                                             <li class="line-block">
                                                 <a href="#" class="contact-link">
                                                     <span class="t-16 link-without-visited-state">Contact info</span>
                                                 </a>
                                             </li>
+                                            <?php endif; ?>
                                         </ul>
 
                                       </div>
                                <div class="p-header-sch">
-                                   <h2><a href="#">University Of Ghana</a></h2>
+                                   <h2><a href="#">
+                                    <?php  if(!empty($userProfileData->college)): ?>
+                                       <?php echo $userProfileData->college; ?>
+                                       <?php endif; ?>
+                                    </a>
+                                </h2>
                                </div>
                             </div>
                     </div>
@@ -306,15 +318,18 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                                     </div>
                                     <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
                                         <label for="topcard-headline" class="pe-form-field__label label-text required">Headline</label>
-                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;">Student at University of Ghana</textarea>
+                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;">
+                                           <?php if(!empty($userProfileData->college)): ?>Student at <?php echo $userProfileData->college; ?>
+                                            <?php endif; ?>
+                                        </textarea>
                                     </div>
                                     <div class="pe-form-field pe-form-field__country-region-picker relative ember-view">
                                        <label for="location-country-region" class="pe-form-field__label required">Country/Region</label>
-                                       <input type="text" value="Ghana"  id="location-country-region">
+                                       <input type="text" value="<?php (!empty($userProfileData->country) ?  $userProfileData->country : "" ) ; ?>"  id="location-country-region">
                                     </div>
                                     <div class="pe-form-field pe-top-card-form__education-field floating-label">
                                        <label for="topcard-education" class="pe-form-field__label  label-text pe-form-field__label required">Education</label>
-                                       <input type="text" id="topcard-education" value="University of Ghana" name="topcard-education">
+                                       <input type="text" id="topcard-education" value="<?php (!empty($userProfileData->college) ? $userProfileData->college : "") ; ?>" name="topcard-education">
                                     </div>
                                     <div class="pe-form-field industry-field">
                                        <label for="topcard-industry" class="pe-form-field__label required">Industry</label>
@@ -339,7 +354,7 @@ $page_title=$profileData->firstName." ".$profileData->lastName ." | LinkedIn";
                         </div>   
                 </div>
                 <div class="modal__footer-topcard">
-                    <button data-control-name="background_image_education_upload" id="ember760" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                    <button data-control-name="background_image_education_upload" id="eprofile" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
                         <span class="artdeco-button__text">
                              Save
                         </span>

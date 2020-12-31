@@ -330,5 +330,24 @@ $(document).ready(function(){
         location.reload(true);
     });
 
+    $(document).on("click","#eprofile",function(e){
+        e.preventDefault();
+        let fname=$("#topcard-firstname").val().trim();
+        let lname=$("#topcard-lastname").val().trim();
+        let headlineDesc=$("#topcard-headline").val().trim();
+        let country=$("#location-country-region").val().trim();
+        let education=$("#topcard-education").val().trim();
+        let industry=$("#topcard-industry").val().trim();
+        if(fname !="" && lname != "" && headlineDesc != "" && country != "" && education != "" && industry != ""){
+           $.post("http://localhost/linkedIn/backend/ajax/profileEdit.php",{userId:u_id,firstName:fname,lastName:lname,headline:headlineDesc,country:country,education:education,industry:industry},function(data){
+               location.href="http://localhost/linkedin/in/"+data;
+           })
+        }else{
+            alert("All fields are required!");
+        }
+       
+        // alert(lname);
+    })
+
    
 });

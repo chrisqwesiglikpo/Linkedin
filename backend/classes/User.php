@@ -21,7 +21,20 @@ class User{
             return false;
         }
     }
-
+    
+    public function userProfileData($user_id){
+        $stmt=$this->con->prepare("SELECT * FROM `users` u LEFT JOIN profile p ON p.userId=u.user_id INNER JOIN careers c ON c.id=p.career_cat_id WHERE
+        u.user_id =:userid");
+        $stmt->bindParam(":userid",$user_id,PDO::PARAM_INT);
+        $stmt->execute();
+        $profileData=$stmt->fetch(PDO::FETCH_OBJ);
+        $count=$stmt->rowCount();
+        if($count !=0){
+            return $profileData;
+        }else{
+            return false;
+        }
+    }
     public function preventAccess($request,$currentFile,$currently){
         if($request=='GET' && $currentFile==$currently){
             header('Location:'.url_for('index.php'));
@@ -92,6 +105,31 @@ class User{
         $stmt->execute();
 
     }
+    public function updateProfile($table, $user_id, $fields = array()){
+        $columns = '';
+        $i = 1;
+
+        foreach($fields as $name => $value){
+            $columns .= "{$name} = :{$name}";
+//            coverPic = :coverPic, profilePic = :profilePic,
+            if($i < count($fields)){
+                $columns .= ', ';
+            }
+            $i++;
+
+
+        }
+         $sql = "UPDATE {$table} SET {$columns} WHERE userId = {$user_id}";
+//        UPDATE profile SET coverPic = :coverPic, profilePic = :profilePic WHERE userId = 10;
+        if($stmt = $this->con->prepare($sql)){
+            foreach($fields as $key => $value){
+                $stmt->bindValue(':'.$key, $value);
+            }
+        }
+        $stmt->execute();
+
+    }
+
 
     public function updatePost($table, $user_id,$post_id, $fields = array()){
         $columns = '';

@@ -9,6 +9,13 @@ class FormSanitizer{
         return $data;
   }
 
+  public static function SanitizerText($data){
+      $data=htmlspecialchars($data);
+      $data=trim($data);
+      $data=stripcslashes($data);
+      return $data;
+
+  }
   public static function sanitizeFormUsername($data){
         $data=strip_tags($data);
         $data=str_replace(" ","",$data);

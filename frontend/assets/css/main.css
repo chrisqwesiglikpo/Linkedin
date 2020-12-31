@@ -678,7 +678,7 @@ aside.profile-right-wrap {
 }
 /* End of Profile */
 /* Modal */
-.modal,.modal-pic,.modal-pic-edit {
+.modal,.modal-pic,.modal-pic-edit,.contact-info__show {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     left: 0;
@@ -737,7 +737,7 @@ aside.profile-right-wrap {
     max-height: calc(100vh - 64px);
     border-radius: 2px;
 }
-.artdeco-modal-pic-edit,.artdeco-modal-pic-contact-info {
+.artdeco-modal-pic-edit {
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
     transition: box-shadow 83ms;
     position: relative;
@@ -751,6 +751,22 @@ aside.profile-right-wrap {
     height: 440px;
     max-height: calc(100vh - 64px);
     border-radius: 2px;
+}
+.artdeco-modal-pic-contact-info {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
+    transition: box-shadow 83ms;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: var(--white,#fff);
+    width: 750px;
+    max-width: 100%;
+    top: 153px;
+    height: 440px;
+    max-height: calc(100vh - 64px);
+    border-radius: 2px;
+    display:none;
 }
 /* .artdeco-modal-pic-contact-info{
     box-shadow: 0 0 0 1px rgba(0,0,0,.15), 0 12px 18px 1px rgba(0,0,0,.2);
@@ -1150,7 +1166,7 @@ label.required:after{ color: var(--color-text-low-emphasis);}
 .modal-pic-edit .artdeco-modal-pic{
     height:495px;
 }
-.modal-pic-edit input[type="text"],.modal-pic-edit textarea,.modal-pic-edit select {
+.modal-pic-edit input[type="text"],.modal-pic-edit textarea,.modal-pic-edit select,input.pe-form-field__text-input {
     font-size: 1.4rem;
     line-height: 1.42857;
     font-weight: 400;
@@ -1209,7 +1225,7 @@ p.pe-top-card-form__contact-info-details.t-14.t-black.t-normal {
     display: table;
     clear: both;
 }
-button#ember {
+button#pencilBtn-edit {
     border-radius: var(--corner-radius-full)!important;
     width: 4rem;
     height: 4rem;
@@ -1217,6 +1233,64 @@ button#ember {
 .artdeco-button--tertiary:hover {
     background-color: var(--color-background-none-tint-action-hover);
     color: var(--color-action);
+}
+.pe-s-form__body.pe-form-body {
+    padding: 2rem;
+}
+label.pe-form-field__label {
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    color: rgba(0,0,0,.9);
+    display: block;
+    margin: 1.2rem 0 .3rem;
+}
+.pe-contact-info-form__types-field {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.pe-contact-info-form__types-input {
+    flex-basis: 70%;
+    margin-right: 16px;
+}
+select#contact-website-type-ember2005 {
+    flex-basis: 30%;
+}
+select#contact-phone-type-ember1838 {
+    flex-basis: 30%;
+}
+.pe-form-field.pe-form-field__country-region-picker.relative.mb-2 {
+    margin-bottom: 1rem;
+}
+.link-redirect:hover{
+    text-decoration: underline;
+}
+.pe-form-field {
+    margin-top: 24px;
+}
+.pe-form-time-period__single-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button.back___home-edit {
+    margin-right: 1rem;
+}
+div.pe-form-field__month-year-date.ember-view {
+    flex-basis: 33%;
+}
+.mt1.visibility-setting.visibility-setting--trailing.ember-view {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 8px;
+}
+span.visibility-setting__trigger-content {
+    display: flex;
+    color: var(--color-action);
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    font-weight: 600;
 }
 /* End of Edit Profile */
 /* End of Edit Styles */

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2020 at 03:43 PM
+-- Generation Time: Dec 31, 2020 at 08:04 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -200,7 +200,7 @@ CREATE TABLE `profile` (
   `currentCity` varchar(255) DEFAULT NULL,
   `shortBio` text DEFAULT NULL,
   `aboutYou` text DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
+  `birthday` varchar(255) DEFAULT NULL,
   `politicalViews` varchar(255) DEFAULT NULL,
   `religion` varchar(255) DEFAULT NULL,
   `highSchool` text DEFAULT NULL,
@@ -208,6 +208,9 @@ CREATE TABLE `profile` (
   `university` text DEFAULT NULL,
   `country` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
+  `websiteType` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `phoneType` varchar(255) NOT NULL,
   `language` varchar(255) DEFAULT NULL,
   `hometown` varchar(255) DEFAULT NULL,
   `gender` varchar(255) DEFAULT NULL,
@@ -226,14 +229,14 @@ CREATE TABLE `profile` (
 -- Dumping data for table `profile`
 --
 
-INSERT INTO `profile` (`id`, `userId`, `career_cat_id`, `currentCity`, `shortBio`, `aboutYou`, `birthday`, `politicalViews`, `religion`, `highSchool`, `college`, `university`, `country`, `website`, `language`, `hometown`, `gender`, `workplace`, `professional`, `otherPlace`, `address`, `socialLink`, `relationship`, `quotes`, `otherName`, `lifeEvent`) VALUES
-(3, 1, 12, NULL, 'Data Science', NULL, NULL, NULL, NULL, NULL, 'University of Canada', 'University of Canada', 'Germany', NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(4, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(5, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(6, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(7, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(8, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(9, 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', '', '', '', '');
+INSERT INTO `profile` (`id`, `userId`, `career_cat_id`, `currentCity`, `shortBio`, `aboutYou`, `birthday`, `politicalViews`, `religion`, `highSchool`, `college`, `university`, `country`, `website`, `websiteType`, `phone`, `phoneType`, `language`, `hometown`, `gender`, `workplace`, `professional`, `otherPlace`, `address`, `socialLink`, `relationship`, `quotes`, `otherName`, `lifeEvent`) VALUES
+(3, 1, 12, NULL, 'Data Science', NULL, '17-9-2005', NULL, NULL, NULL, 'University of Canada', 'University of Canada', 'Germany', 'http://www.columbus.com', 'PERSONAL', '0242358811', 'HOME', NULL, NULL, NULL, '', '', '', 'Accra,Ghana', '', '', '', '', ''),
+(4, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(5, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(6, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(7, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(8, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(9, 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 

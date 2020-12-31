@@ -349,5 +349,40 @@ $(document).ready(function(){
         // alert(lname);
     })
 
+    $(document).on("click","#pencilBtn-edit",function(e){
+        e.preventDefault();
+        let pic__edit=document.querySelector(".artdeco-modal-pic-edit");
+        let contactInfo=document.querySelector(".artdeco-modal-pic-contact-info");
+        pic__edit.style.display="none";
+        contactInfo.style.display="block";
+    });
+
+    $(document).on("click",".back___home-edit",function(e){
+        e.preventDefault();
+        location.reload(true);
+    })
+
+    $(document).on("click","#contantprofile-info",function(e){
+        e.preventDefault();
+        let websiteUrl=$("#contact-website-ember2005").val().trim();
+        let websiteType=$("#contact-website-type-ember2005").val();
+        let phoneNo=$("#contact-phone-ember1838").val().trim();
+        let contactAddress=$("#contact-address").val().trim();
+        let phoneType=$("#contact-phone-type-ember1838").val();
+        let birthday=$("#birthday-day").val();
+        let birthmonth=$("#birthday-month").val();
+        let birthyear=$("#birthday-year").val();
+        
+        if(websiteUrl != "" || websiteType != "" || phoneNo != "" || contactAddress != "" || phoneType != "" || birthday !="" || birthmonth !="" || birthyear !=""){
+            $.post("http://localhost/linkedIn/backend/ajax/profileEdit.php",{userIdEd:u_id,webUrl:websiteUrl,webType:websiteType,phoneNo:phoneNo,phoneType:phoneType,address:contactAddress,birthday:birthday,birthmonth:birthmonth,birthyear:birthyear},function(data){
+                   location.reload(true);
+            });
+        }
+        
+        
+        // let lname=$("#topcard-lastname").val().trim();
+      
+    })
+
    
 });

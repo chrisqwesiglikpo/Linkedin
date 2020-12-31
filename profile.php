@@ -271,7 +271,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
    
     <?php if(strpos($_SERVER['REQUEST_URI'], '/edit/intro')) :?>
         <div class="modal-pic-edit" id="modal-pic" style="display:block">
-        <div class="artdeco-modal-pic-edit" style="display:none" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+        <div class="artdeco-modal-pic-edit" style="" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
                 <div class="header__topcard">
                     <h2 id="profile-topcard-background-image-education-header">
                         Edit intro
@@ -341,7 +341,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                                         <label for="topcard-contact-info" class="pe-form-field__label">Contact info</label>
                                         <div class="pe-top-card-form__contact-info display-flex align-items-center">
                                             <p class="pe-top-card-form__contact-info-details t-14 t-black t-normal">Profile URL ,Email , WeChat ID</p>
-                                            <button type="button" class="pe-top-card-form__contact-info-edit-button artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--tertiary ember-view" id="ember">
+                                            <button type="button" class="pe-top-card-form__contact-info-edit-button artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--tertiary ember-view" id="pencilBtn-edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#0a66c2" class="mercado-match" width="24" height="24" focusable="false">
                                                     <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" fill="rgba(0, 0, 0, 0.35);" />
                                                 </svg>
@@ -391,7 +391,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                     </button>
                 </div>
         </div>
-        <div class="artdeco-modal-pic-contact-info" role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
+        <div class="artdeco-modal-pic-contact-info" style="overflow-y:auto;"role="dialog" aria-labelledby="profile-topcard-background-image-education-header">
                 <div class="header__topcard">
                     <div class="ed_p__head">
                          <button class="back___home-edit" type="button">
@@ -411,64 +411,128 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                 </div>
                 <div class="p__edit-modal-body__topcard">
                         <div class="pe-form-body__content">
-                            <form action="" class="pe-form__container">
-                                <div class="pe__wrapper">
-                                    <div class="pe-s-multi-field">
-                                        <div class="pe-top-card-form__name-field">
-                                          <label for="topcard-firstname" class="pe-form-field__label label-text required">First Name</label>
-                                          <input aria-required="true" name="firstName" maxlength="50" id="topcard-firstname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->firstName; ?>" autofocus>
-                                        </div>
-                                        <div class="pe-top-card-form__name-field">
-                                          <label for="topcard-lastname" class="pe-form-field__label label-text required">Last Name</label>
-                                          <input aria-required="true" name="lastName" maxlength="50" id="topcard-lastname" class="ember-text-field pe-form-field__text-input ember-view" type="text" value="<?php echo $user->lastName; ?>">
-                                        </div>
+                            <form action="" class="pe-s-form__container">
+                                <div class="pe-s-form__body pe-form-body">
+                                     <div class="pe-form-field pe-contact-info-form__profile-url-field">
+                                       <label for="pe-form-field__label" class="pe-form-field__label">Profile URL</label>
+                                         <a href="#" target="_blank" class="link-redirect pe-contact-info-form__external-link link-without-visited-state t-14 ember-view">
+                                          linkedin.com/in/<?php echo $user->username; ?>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#0073b1" class="mercado-match" width="16" height="16" focusable="false">
+                                                 <path d="M15 1v6h-2V4.41L7.41 10 6 8.59 11.59 3H9V1zm-4 10a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h2V3H5a3 3 0 00-3 3v5a3 3 0 003 3h5a3 3 0 003-3V9h-2z"/>
+                                            </svg>
+                                        </a>
                                     </div>
+                                    <div class="pe-form-field floating-label  pe-contact-info-form__hidden-new-item">
+                                            <label for="contact-website-ember2005" class="pe-form-field__label label-text">Website URL</label>
+                                            <div class="pe-contact-info-form__types-field">
+                                                <div class="pe-contact-info-form__types-input">
+                                                    <input type="text" maxlength="249" id="contact-website-ember2005" class="ember-text-field pe-form-field__text-input ember-view">
+                                                </div>
+                                                <select id="contact-website-type-ember2005" class="pe-contact-info-form__types-select ember-view" name="contact-website">
+                                                    <option value="PERSONAL">Personal</option>
+                                                    <option value="COMPANY">Company</option>
+                                                    <option value="BLOG">Blog</option>
+                                                    <option value="RSS">RSS Feed</option>
+                                                    <option value="PORTFOLIO">Portfolio</option>
+                                                    <option value="OTHER">Other</option>
+                                                </select>
+                                            </div>
+                                    </div>
+                                    <div class="pe-form-field floating-label  pe-contact-info-form__hidden-new-item">
+                                            <label for="contact-phone-ember1838" class="pe-form-field__label label-text">Phone</label>
+                                            <div class="pe-contact-info-form__types-field">
+                                                <div class="pe-contact-info-form__types-input">
+                                                    <input type="text" aria-required="true" name="contact-phone" maxlength="50"  id="contact-phone-ember1838" class="ember-text-field pe-form-field__text-input ember-view">
+                                                </div>
+                                                <select id="contact-phone-type-ember1838" name="phone" class="pe-contact-info-form__types-select ember-view" name="contact-website">
+                                                    <option value="HOME">Home</option>
+                                                    <option value="WORK">Work</option>
+                                                    <option value="MOBILE">Mobile</option>
+                                                </select>
+                                            </div>
+                                    </div>
+                                    <!-- <div class="pe-contact-info-form__phone-field ember-view">
+                                        <div class="pe-top-card-form__name-field">
+                                          <label for="contact-phone-ember1838" class="pe-form-field__label label-text">Phone</label>
+                                          <input aria-required="true" name="contact-phone" maxlength="50" id="contact-phone-ember1838" class="ember-text-field pe-form-field__text-input ember-view" type="text" >
+                                        </div>
+                                        <div class="pe-top-card-form__name-field">
+                                            <select  id="contact-phone-type-ember1838" name="phone" class="pe-contact-info-form__types-select ember-view">
+                                             <option value="HOME">Home</option>
+                                             <option value="WORK">Work</option>
+                                             <option value="MOBILE">Mobile</option>
+                                                
+                                            </select>
+                                        </div>
+                                    </div> -->
                                     <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
-                                        <label for="topcard-headline" class="pe-form-field__label label-text required">Headline</label>
-                                        <textarea  id="topcard-headline"  class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;"><?php if(!empty($userProfileData->college)): ?>Student at <?php echo $userProfileData->college; ?>
-                                            <?php endif; ?>
-                                        </textarea>
+                                        <label for="contact-address" class="pe-form-field__label label-text required">Address</label>
+                                        <textarea  id="contact-address" rows="2" maxlength="1000" class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;"></textarea>
                                     </div>
-                                    <div class="pe-form-field pe-form-field__country-region-picker relative ember-view">
-                                       <label for="location-country-region" class="pe-form-field__label required">Country/Region</label>
-                                       <input type="text" value="<?php (!empty($userProfileData->country) ?  $userProfileData->country : "" ) ; ?>"  id="location-country-region">
+                                    <div class="pe-form-field pe-form-field__country-region-picker relative ember-view mb-2">
+                                       <label for="pe-form-field__label" class="pe-form-field__label">Email address</label>
+                                       <a href="#" target="_blank" class="link-redirect pe-contact-info-form__external-link t-14 t-black--light t-normal ember-view">
+                                           <?php echo $user->email; ?>
+                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#0073b1" class="mercado-match" width="16" height="16" focusable="false">
+                                                 <path d="M15 1v6h-2V4.41L7.41 10 6 8.59 11.59 3H9V1zm-4 10a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1h2V3H5a3 3 0 00-3 3v5a3 3 0 003 3h5a3 3 0 003-3V9h-2z"/>
+                                            </svg>
+                                       </a>
                                     </div>
-                                    <div class="pe-form-field pe-top-card-form__education-field floating-label">
-                                       <label for="topcard-education" class="pe-form-field__label  label-text pe-form-field__label required">Education</label>
-                                       <input type="text" id="topcard-education" value="<?php (!empty($userProfileData->college) ? $userProfileData->college : "") ; ?>" name="topcard-education">
-                                    </div>
-                                    <div class="pe-form-field industry-field">
-                                       <label for="topcard-industry" class="pe-form-field__label required">Industry</label>
-                                       <select  id="topcard-industry" name="industry" class="ember-view">
-                                           <option value="">Choose an industry...</option>
-                                            <?php echo $account->getCareers(); ?> 
-                                       </select>
-                                    </div>
-                                    <div class="pe-form-field pe-top-card-form__contact-info-field">
-                                        <label for="topcard-contact-info" class="pe-form-field__label">Contact info</label>
-                                        <div class="pe-top-card-form__contact-info display-flex align-items-center">
-                                            <p class="pe-top-card-form__contact-info-details t-14 t-black t-normal">Profile URL ,Email , WeChat ID</p>
-                                            <button type="button" class="pe-top-card-form__contact-info-edit-button artdeco-button artdeco-button--circle artdeco-button--2 artdeco-button--tertiary ember-view" id="ember">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#0a66c2" class="mercado-match" width="24" height="24" focusable="false">
-                                                    <path d="M21.13 2.86a3 3 0 00-4.17 0l-13 13L2 22l6.19-2L21.13 7a3 3 0 000-4.16zM6.77 18.57l-1.35-1.34L16.64 6 18 7.35z" fill="rgba(0, 0, 0, 0.35);" />
-                                                </svg>
-                                            </button>
+                                    <div class="pe-form-field birthday-field">
+                                        <label class="pe-form-field__label" aria-hidden="true">Birthday</label>
+                                        <div class="pe-form-time-period__single-date-container">
+                                                <div id="ember" class="pe-form-field__month-year-date ember-view">
+                                                    <label class="visually-hidden" for="birthday-day">Birthday day</label>
+                                                    <span class="ember-view">
+                                                        <select name="birth-day" id="birthday-day" class="ember-view">
+                                                            <option value="">Day</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <div id="ember" class="pe-form-field__month-year-date ember-view">
+                                                    <label class="visually-hidden" for="birthday-month">Birthday month</label>
+                                                    <span class="ember-view">
+                                                        <select name="birth-month" id="birthday-month" class="ember-view">
+                                                            <option value="">Month</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <div id="ember" class="pe-form-field__month-year-date ember-view">
+                                                    <label class="visually-hidden" for="birthday-year">Birthday year</label>
+                                                    <span class="ember-view">
+                                                        <select name="birth-year" id="birthday-year" class="ember-view">
+                                                            <option value="">Year</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
                                         </div>
+                                    </div>
+                                    <div class="mt1 visibility-setting visibility-setting--trailing ember-view">
+                                        <button type="button" class="visibility-setting__trigger t-14 t-black--light t-bold artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-top ember-view">
+                                           <span class="visibility-setting__trigger-content">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#0073b1" class="mercado-match" width="16" height="16" focusable="false">
+                                                        <path d="M8 3a8.59 8.59 0 00-8 5 8.54 8.54 0 008 5 8.55 8.55 0 008-5 8.55 8.55 0 00-8-5zm0 8a3 3 0 113-3 3 3 0 01-3 3zm2-3a2 2 0 11-2-2 2 2 0 012 2z"/>
+                                                </svg>
+                                                <span class="mh1">Birthday visible to:</span>Only You
+                                           </span>   
+                                           
+                                        </button>
                                     </div>
                                 </div>
                             </form>
                         </div>   
                 </div>
                 <div class="modal__footer-topcard">
-                    <button data-control-name="background_image_education_upload" id="eprofile" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
+                    <button data-control-name="background_image_education_upload" id="contantprofile-info" class="relative artdeco-button artdeco-button--2 artdeco-button--primary ember-view"><!---->
                         <span class="artdeco-button__text">
-                             Save
+                             Apply
                         </span>
                     </button>
                 </div>
         </div>
-    </div>
+     </div>
     <?php endif; ?>
     
     <script src="<?php echo url_for('frontend/assets/js/profile.js');?>"></script>
+    <script src="<?php echo url_for('frontend/assets/js/birthday.js');?>"></script>
 </body>

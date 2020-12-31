@@ -912,7 +912,7 @@ input.profile-topcard-background-image-edit__input {
 /* Profile Style */
 .cover-photo-rest-wrap {
     position: absolute;
-    top: 23%;
+    top: 28%;
     left: 5%;
     width: 160px;
     height: 160px;
@@ -960,7 +960,7 @@ input.profile-topcard-background-image-edit__input {
 .right-icon {
     position: absolute;
     right: 25px;
-    top: 41%;
+    top: 50%;
 }
 button.edit-profile-icon {
     height: 4rem;
@@ -973,7 +973,7 @@ button.edit-profile-icon:hover{
 }
 .ph5{
     background: #fff;
-    height: 300px;
+    /* height: 300px; */
     border-bottom-left-radius: var(--corner-radius-medium);
     border-bottom-right-radius: var(--corner-radius-medium);
     box-shadow: var(--elevation-lined)!important;

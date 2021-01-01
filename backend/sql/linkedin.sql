@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2020 at 08:04 PM
+-- Generation Time: Jan 01, 2021 at 11:33 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -190,6 +190,38 @@ INSERT INTO `careers` (`id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post`
+--
+
+CREATE TABLE `post` (
+  `post_id` int(11) NOT NULL,
+  `userId` int(11) DEFAULT NULL,
+  `post` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `postBy` int(11) DEFAULT NULL,
+  `postImage` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `imageId` text DEFAULT NULL,
+  `likesCount` int(11) NOT NULL,
+  `shareCount` int(11) DEFAULT NULL,
+  `postedOn` datetime DEFAULT NULL,
+  `shareText` text DEFAULT NULL,
+  `profilePhoto` text DEFAULT NULL,
+  `coverPhoto` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`post_id`, `userId`, `post`, `postBy`, `postImage`, `imageId`, `likesCount`, `shareCount`, `postedOn`, `shareText`, `profilePhoto`, `coverPhoto`) VALUES
+(1, 1, 'How are you doing?', 1, NULL, NULL, 0, NULL, '2021-01-01 22:26:52', NULL, NULL, NULL),
+(2, 1, 'Awesome!!', 1, NULL, NULL, 0, NULL, '2021-01-01 22:30:57', NULL, NULL, NULL),
+(3, 1, 'Great Job!!', 1, NULL, NULL, 0, NULL, '2021-01-01 22:31:19', NULL, NULL, NULL),
+(4, 1, 'Amazing!!', 1, NULL, NULL, 0, NULL, '2021-01-01 22:31:49', NULL, NULL, NULL),
+(5, 6, 'How are you feeling,Christopher?', 6, NULL, NULL, 0, NULL, '2021-01-01 22:33:07', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -230,13 +262,14 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id`, `userId`, `career_cat_id`, `currentCity`, `shortBio`, `aboutYou`, `birthday`, `politicalViews`, `religion`, `highSchool`, `college`, `university`, `country`, `website`, `websiteType`, `phone`, `phoneType`, `language`, `hometown`, `gender`, `workplace`, `professional`, `otherPlace`, `address`, `socialLink`, `relationship`, `quotes`, `otherName`, `lifeEvent`) VALUES
-(3, 1, 12, NULL, 'Data Science', NULL, '17-9-2005', NULL, NULL, NULL, 'University of Canada', 'University of Canada', 'Germany', 'http://www.columbus.com', 'PERSONAL', '0242358811', 'HOME', NULL, NULL, NULL, '', '', '', 'Accra,Ghana', '', '', '', '', ''),
+(3, 1, 18, NULL, 'Web Developer || Data Scientist || Blogger || Instructor', NULL, '17-9-2005', NULL, NULL, NULL, 'University of Canada', 'University of Canada', 'Germany', 'http://www.columbus.com', 'PERSONAL', '0242358811', 'HOME', NULL, NULL, NULL, '', '', '', 'Accra,Ghana', '', '', '', '', ''),
 (4, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
 (5, 3, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
 (6, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
 (7, 5, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
 (8, 7, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
-(9, 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', '');
+(9, 8, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', ''),
+(10, 9, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, NULL, '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -262,7 +295,10 @@ INSERT INTO `token` (`id`, `token`, `user_id`) VALUES
 (5, 'c2c5764b824dceb293f1dc713f86f9501d4efba7', 5),
 (6, '0641ff43a0e4dbbaab5e1e8a83bcb87072fa2525', 6),
 (7, '8b5ef3c9985401ab7f4f07ed894fe52a95bf8f6c', 7),
-(8, 'd7214abb94b9d87901ff4bd22ec6a10e9d3bef5e', 8);
+(8, 'd7214abb94b9d87901ff4bd22ec6a10e9d3bef5e', 8),
+(9, 'fb50e562b01b52f2426afbe555b9dd7204dbf066', 9),
+(10, '2aabeea259f3de0dd190a9c8a020cf97e4feadb9', 1),
+(11, '42e237c957ae2c1755a7ec434a096a771c4bc38d', 6);
 
 -- --------------------------------------------------------
 
@@ -297,7 +333,8 @@ INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `password`, `p
 (5, 'Belinda', 'Tetteh', 'belinda@gmail.com', '$2y$10$L1LPJ9G3zPCDiJkCrFuhV.3TBeP4Lx6Olrh8WtW1hMlYpLG3O9g8.', 'frontend/profileImage/5/f78ab98b909789bae8a54d6bf.png', 1, 'frontend/profileCover/5/c5ffaca1460bc5cab81cc6b6b.png', 0, 0, 'belindatetteh', '2020-12-30'),
 (6, 'Cornelia', 'Glikpo', 'corneliaglikpo@gmail.com', '$2y$10$tqbUGjKrHgr.j7CVVAEPte9oFMEWnGeN35ewZyao8UEwoUksA.VWy', 'frontend/assets/images/profileDefaultPic.svg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'corneliaglikpo', '2020-12-30'),
 (7, 'Adams', 'Karaba', 'adams@gmail.com', '$2y$10$Fx.EVhjh5iMo4pEUPfEOlOsRZcQvdKXHIzmMtWnMd1iKHKMaWD1f2', 'frontend/assets/images/default.svg', 0, 'frontend/assets/images/backgroundImage.svg', 0, 0, 'adamskaraba', '2020-12-31'),
-(8, 'Aizaz', 'Ibramhim', 'aizaz@gmail.com', '$2y$10$Ll.CXzrm4DP.vAoixsOMNenzZSdRLa4OcgFiiUP07tVGU84lxwI5C', 'frontend/assets/images/profileDefaultPic.svg', 0, 'frontend/assets/images/coverPic.svg', 0, 0, 'aizazibramhim', '2020-12-31');
+(8, 'Aizaz', 'Ibramhim', 'aizaz@gmail.com', '$2y$10$Ll.CXzrm4DP.vAoixsOMNenzZSdRLa4OcgFiiUP07tVGU84lxwI5C', 'frontend/assets/images/profileDefaultPic.svg', 0, 'frontend/assets/images/coverPic.svg', 0, 0, 'aizazibramhim', '2020-12-31'),
+(9, 'Michael', 'Otu', 'michaelotu@gmail.com', '$2y$10$ug5lxLEtj1jGMQ84E8BHReRGPz2b3ixyecBEh8bHy2Ngiku6NWu.m', 'frontend/assets/images/defaultPic.png', 0, 'frontend/assets/images/coverPic.svg', 0, 0, 'michaelotu', '2020-12-31');
 
 --
 -- Indexes for dumped tables
@@ -308,6 +345,13 @@ INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `password`, `p
 --
 ALTER TABLE `careers`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`post_id`),
+  ADD KEY `postForeign` (`userId`);
 
 --
 -- Indexes for table `profile`
@@ -340,26 +384,38 @@ ALTER TABLE `careers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `token`
 --
 ALTER TABLE `token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `postForeign` FOREIGN KEY (`userId`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `profile`

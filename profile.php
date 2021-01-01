@@ -28,7 +28,7 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
 <body>
     <div class="u_p_id" data-uid="<?php echo $user_id; ?>"  data-pid="<?php echo $profileId ?>"></div>
     <?php require_once "backend/shared/mainNav.php"; ?>
-    <main class="core-rail">
+    <main class="core-rail core-profile">
         <div class="main-area">
                 <div class="profile-left-wrap">
                     <div class="profile-cover-wrap" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)" alt="Background Image">
@@ -101,8 +101,8 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                                             <li class="inline t-24 t-black t-normal break-words"><?php echo $profileData->firstName." ".$profileData->lastName; ?></li>
                                         </ul>
                                         <h2 class="mt1 t-18 t-black t-normal break-words">
-                                          <?php  if(!empty($userProfileData->college)): ?>
-                                             Student at <?php echo $userProfileData->college; ?>
+                                          <?php  if(!empty($userProfileData->shortBio)): ?>
+                                             <?php echo $userProfileData->shortBio; ?>
                                           <?php endif; ?>
                                         </h2>
                                         <ul class="pv-top-card--list inline-flex pv-top-card--list-bullet">
@@ -451,20 +451,6 @@ $userProfileData=$loadFromUser->userProfileData($profileId);
                                                 </select>
                                             </div>
                                     </div>
-                                    <!-- <div class="pe-contact-info-form__phone-field ember-view">
-                                        <div class="pe-top-card-form__name-field">
-                                          <label for="contact-phone-ember1838" class="pe-form-field__label label-text">Phone</label>
-                                          <input aria-required="true" name="contact-phone" maxlength="50" id="contact-phone-ember1838" class="ember-text-field pe-form-field__text-input ember-view" type="text" >
-                                        </div>
-                                        <div class="pe-top-card-form__name-field">
-                                            <select  id="contact-phone-type-ember1838" name="phone" class="pe-contact-info-form__types-select ember-view">
-                                             <option value="HOME">Home</option>
-                                             <option value="WORK">Work</option>
-                                             <option value="MOBILE">Mobile</option>
-                                                
-                                            </select>
-                                        </div>
-                                    </div> -->
                                     <div class="pe-form-field pe-top-card-form__headline-field floating-label  pe-form-field--has-error">
                                         <label for="contact-address" class="pe-form-field__label label-text required">Address</label>
                                         <textarea  id="contact-address" rows="2" maxlength="1000" class="pe-top-card-form__headline-text ember-text-area pe-form-field__textarea ember-view" style="margin: 0px; height: 70px; width: 622px;"></textarea>

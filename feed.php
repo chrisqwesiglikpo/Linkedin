@@ -20,9 +20,26 @@ $profileId =$user_id;
 }
 $user=$loadFromUser->userData($user_id);
 $profileData = $loadFromUser->userData($profileId);
- $page_title="Feed | LinkedIn"; 
+
+if(!isset($page_title)){
+    $page_title="Feed | LinkedIn";
+}
 ?>
-<?php require_once "backend/shared/mainHeader.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $page_title; ?></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="<?php echo url_for('frontend/assets/js/jquery-3.5.1.js'); ?>"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.9/cropper.min.js"></script>
+    <link rel="shortcut icon" href="<?php echo url_for('frontend/assets/favicon/linkedIn.ico'); ?>">
+    <link rel="stylesheet" href="<?php echo url_for('frontend/assets/css/main.css'); ?>">
+    <link rel="stylesheet" href="<?php echo url_for('frontend/assets/css/mainSite.css'); ?>">
+    
+</head>
 <body>
     <div class="u_p_id" data-uid="<?php echo $user_id; ?>"  data-pid="<?php echo $profileId ?>"></div>
     <header id="global-nav" class="global-nav">
@@ -101,5 +118,28 @@ $profileData = $loadFromUser->userData($profileId);
         </div>
     
     </header>
+    <section class="authentication-outlet">
+        <div class="feed-container-theme feed-outlet">
+                <div class="neptune-grid three-column ghost-animate-in">
+                     <section class="ad-banner-container is-header-zone ember-view"></section>
+                     <aside class="left-rail" role="presentation">
+                         <div class="feed-identity-module profile-rail-card ember-view">
+                             <div class="feed-identity-module__actor-meta profile-rail-card__actor-meta break-words">
+                                 <div class=" feed-identity-module__default-bg profile-rail-card__default-bg feed-identity-module__member-bg-image profile-rail-card__member-bg-image" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)" alt="Background Image"></div>
+                                 <a href="<?php echo url_for('in/'.$user->username); ?>">
+                                    <div class="identity_profile_photo">
+                                        <img width="64px" height="64px" src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>" class="feed-identity-module__member-photo profile-rail-card__member-photo EntityPhoto-circle-5 lazy-image ghost-person ember-view" style="background: #b3b6b9;">
+                                    </div>
+                                    <div class="profile-rail-card__actor-link t-16 t-black t-bold">Welcome,<?php echo $user->firstName; ?>!</div>
+                                </a>
+                             </div>
+                         </div>
+                         <div class="sticky ember-view"></div>
+                     </aside>
+                     <div class="core-rail" role="main">Main</div>
+                     <div class="right-rail">Right</div>
+                </div>
+        </div>
+    </section>
     <script src="<?php echo url_for('frontend/assets/js/common.js'); ?>"></script>
 </body>

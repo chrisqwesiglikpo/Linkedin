@@ -500,6 +500,9 @@
 html{
     font-size:62.5%;
 }
+html,body{
+    height:100%;
+}
 body, p {
     font-size: 1.6rem;
     line-height: 1.5;
@@ -513,9 +516,12 @@ body{
 
 /* Header styles */
 .global-nav {
-    background-color: var(--color-background-container)!important;
-    border-bottom: 1px solid var(--color-border-faint)!important;
-    height:53px;
+    background-color: var(--color-background-container) !important;
+    border-bottom: 1px solid var(--color-border-faint) !important;
+    height: 53px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
 }
 .global-nav__content {
     align-items: center;
@@ -1291,6 +1297,9 @@ span.visibility-setting__trigger-content {
     font-size: 1.4rem;
     line-height: 1.42857;
     font-weight: 600;
+}
+.core-profile{
+    padding-top:52px;
 }
 /* End of Edit Profile */
 /* End of Edit Styles */

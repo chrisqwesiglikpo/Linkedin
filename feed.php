@@ -124,19 +124,148 @@ if(!isset($page_title)){
                      <section class="ad-banner-container is-header-zone ember-view"></section>
                      <aside class="left-rail" role="presentation">
                          <div class="feed-identity-module profile-rail-card ember-view">
-                             <div class="feed-identity-module__actor-meta profile-rail-card__actor-meta break-words">
-                                 <div class=" feed-identity-module__default-bg profile-rail-card__default-bg feed-identity-module__member-bg-image profile-rail-card__member-bg-image" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)" alt="Background Image"></div>
-                                 <a href="<?php echo url_for('in/'.$user->username); ?>">
-                                    <div class="identity_profile_photo">
-                                        <img width="64px" height="64px" src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>" class="feed-identity-module__member-photo profile-rail-card__member-photo EntityPhoto-circle-5 lazy-image ghost-person ember-view" style="background: #b3b6b9;">
-                                    </div>
-                                    <div class="profile-rail-card__actor-link t-16 t-black t-bold">Welcome,<?php echo $user->firstName; ?>!</div>
+                                <div class="feed-identity-module__actor-meta profile-rail-card__actor-meta break-words">
+                                    <div class=" feed-identity-module__default-bg profile-rail-card__default-bg feed-identity-module__member-bg-image profile-rail-card__member-bg-image" style="background-image:url(<?php echo url_for($profileData->profileCover); ?>)" alt="Background Image"></div>
+                                    <a href="<?php echo url_for('in/'.$user->username); ?>" class="feed-link">
+                                        <div class="identity_profile_photo">
+                                            <img  src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>" class="feed-identity-module__member-photo profile-rail-card__member-photo EntityPhoto-circle-5 lazy-image ghost-person ember-view" style="background: #b3b6b9;">
+                                        </div>
+                                        <div class="profile-rail-card__actor-link t-16 t-black t-bold">Welcome,<?php echo $user->firstName; ?>!</div>
+                                    </a>
+                                </div>
+                                <div class="feed-identity-module__widgets mv3">
+                                            <ul class="entity-list row">
+                                                <li class=" entity-list-item">
+                                                    <a href="<?php echo url_for('mynetwork/'); ?>" class="ember-view full-width">
+                                                        <div class="display-flex align-items-baseline">
+                                                            <div class="text-align-left">
+                                                                <div class="identity-widget-item__headline t-12 t-black--light t-bold attributed-text ember-view">
+                                                                    <span id="ember790">Connections</span>
+                                                                </div>
+                                                                <div class="identity-widget-item__headline t-12 t-black--light t-bold attributed-text ember-view">
+                                                                    <span id="ember794">Grow your network</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="t-12 t-black t-bold flex-1 text-align-right">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="rgba(0,0,0,.9)" class="mercado-match" width="16" height="16" focusable="false">
+                                                                <path d="M9 4a3 3 0 11-3-3 3 3 0 013 3zM6.75 8h-1.5A2.25 2.25 0 003 10.25V15h6v-4.75A2.25 2.25 0 006.75 8zM13 8V6h-1v2h-2v1h2v2h1V9h2V8z"/>
+                                                            </svg>
+                                                            </div>
+                                                        </div>
+                                                   </a>
+                                                </li>
+                                            </ul>
+                                </div>
+                                <a href="<?php echo url_for('my-items/'); ?>" class="feed-identity-module__anchored-widget link-without-hover-state p3 text-align-left ember-view">
+                                    <span class="t-12 t-black t-bold v-align-middle block">
+                                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="rgba(0,0,0,.9)" width="16" height="16" focusable="false">
+                                          <path d="M12 1H4a1 1 0 00-1 1v13.64l5-3.36 5 3.36V2a1 1 0 00-1-1z"/>
+                                      </svg>
+                                        My items
+                                    </span>
                                 </a>
-                             </div>
                          </div>
-                         <div class="sticky ember-view"></div>
+                         <div class="sticky ember-view" style="width:100%; margin-top:1.3rem;font-size:1.2rem;">
+                                <div id="ember164" class="artdeco-card mb2 community-panel ember-view">
+                                    <div class="community-panel-interest-package ember-view">
+                                        <section class="community-panel-interest-package__section-header">
+                                            <header class="text-align-left flex-1 pl3">
+                                                <h2 class="community-panel-interest-package__header">
+                                                    <a href="<?php echo url_for('groups/'); ?>" class="community-panel-interest-package__header-link community-panel-interest-package--hoverable t-12 t-black t-bold block pv1 app-aware-link ember-view">
+                                                       <span>Groups</span> 
+                                                    </a>
+                                                </h2>
+                                            </header>
+                                        </section>
+                                    </div>
+                                    <div class="community-panel-interest-package ember-view">
+                                        <section class="community-panel-interest-package__section-header">
+                                                <header class="text-align-left flex-1 pl3">
+                                                    <h2 class="community-panel-interest-package__header">
+                                                        <a href="<?php echo url_for('mynetwork/network-manager/events/'); ?>" class="community-panel-interest-package__header-link community-panel-interest-package--hoverable t-12 t-black t-bold block pv1 app-aware-link ember-view">
+                                                        <span>Events</span> 
+                                                        </a>
+                                                    </h2>
+                                                </header>
+                                                <div class="display-flex fr">
+                                                    <button aria-label="Create an event" class="community-panel-interest-package__event-cta community-panel-interest-package--hoverable artdeco-button artdeco-button--circle artdeco-button--1 artdeco-button--tertiary ember-view">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="rgba(0,0,0,0.6)" class="mercado-match" width="16" height="16" focusable="false">
+                                                    <path d="M14 9H9v5H7V9H2V7h5V2h2v5h5z"></path>
+                                                    </svg>
+                                                    </button>
+                                                </div>
+                                            </section>
+                                    </div>
+                                    <div class="community-panel-interest-package ember-view">
+                                       <section class="community-panel-interest-package__section-header">
+                                            <header class="text-align-left flex-1 pl3">
+                                                <h2 class="community-panel-interest-package__header">
+                                                    <a href="<?php echo url_for('feeds/following/hashtag/'); ?>" class="community-panel-interest-package__header-link community-panel-interest-package--hoverable t-12 t-black t-bold block pv1 app-aware-link ember-view">
+                                                       <span>Followed Hashtag</span> 
+                                                    </a>
+                                                </h2>
+                                            </header>
+                                        </section>
+                                    </div>
+                                    <a href="<?php echo url_for('feed/follow/'); ?>" class="community-panel__discover-cta ember-view">
+                                        Discover More
+                                    </a>
+                                </div>
+                        </div>
                      </aside>
-                     <div class="core-rail" role="main">Main</div>
+                     <div class="core-rail" role="main">
+                            <div>
+                                    <div class="share-box-feed-entry__wrapper artdeco-card">
+                                            <div class="display-flex align-items-center mt2 mr4 ml4">
+                                                <button type="button" class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry__trigger--v2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                                            <path d="M19 12h2v6a3 3 0 01-3 3H6a3 3 0 01-3-3V6a3 3 0 013-3h6v2H6a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1zm4-8a2.91 2.91 0 01-.87 2l-8.94 9L7 17l2-6.14 9-9A3 3 0 0123 4zm-4 2.35L17.64 5l-7.22 7.22 1.35 1.34z"/>
+                                                        </svg>
+                                                        Start a post
+                                                </button>
+                                            </div>
+                                            <div class="share-box-feed-entry__bottom-bar-wrapper">
+                                                <button aria-label="Upload Image" class="artdeco-button tag__btn artdeco-button--muted artdeco-button--4 artdeco-button--tertiary ember-view share-box-feed-entry__bottom-bar-item" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#70b5f9;" class="phone__share-upload" width="24" height="24" focusable="false">
+                                                        <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"/>
+                                                    </svg>
+                                                    <span class="artdeco-button__textupload">Photo</span>
+                                                </button>
+                                                <button aria-label="Upload Video" class="artdeco-button tag__btn artdeco-button--muted artdeco-button--4 artdeco-button--tertiary ember-view share-box-feed-entry__bottom-bar-item" type="button">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#e7a33e;" class="video__share-upload" width="24" height="24" focusable="false">
+                                                    <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"></path>
+                                                    </svg>
+                                                    <span class="artdeco-button__textupload">Video</span>
+                                                </button>
+                                                <a href="<?php echo url_for('events'); ?>" style="color:rgb(0,0,0);" class="ember-view share-box-feed-entry__bottom-bar-item artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match-event" width="24" height="24" focusable="false">
+                                                        <path d="M3 3v15a3 3 0 003 3h12a3 3 0 003-3V3zm13 1.75A1.25 1.25 0 1114.75 6 1.25 1.25 0 0116 4.75zm-8 0A1.25 1.25 0 116.75 6 1.25 1.25 0 018 4.75zM19 18a1 1 0 01-1 1H6a1 1 0 01-1-1V9h14zm-5.9-3a1 1 0 00-1-1H12a3.12 3.12 0 00-1 .2l-1-.2v-3h3.9v1H11v1.15a3.7 3.7 0 011.05-.15 1.89 1.89 0 012 1.78V15a1.92 1.92 0 01-1.84 2H12a1.88 1.88 0 01-2-1.75 1 1 0 010-.25h1a.89.89 0 001 1h.1a.94.94 0 001-.88z"></path>
+                                                        </svg>
+                                                        <span class="share-box-feed-entry__bottom-bar-item-text artdeco-button__textupload"> Event</span>
+                                                </a>
+                                                <a href="<?php echo url_for('post/new/'); ?>" style="color:rgb(0,0,0);" class="ember-view share-box-feed-entry__bottom-bar-item artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match-article" width="24" height="24" focusable="false">
+                                                            <path d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"></path>
+                                                        </svg>
+                                                        <span class="share-box-feed-entry__bottom-bar-item-text artdeco-button__textupload"> Write article</span>
+                                                </a>
+                                                
+                                            </div>
+                                    </div>
+                            </div>
+                            <div class="sort__main">
+                                <button type="button" class="feed__sort-dropdown" tabindex="0">
+                                    <hr class="flex-grow-1 mr2 mvA">
+                                    <div class="display-flex">
+                                        <span class="t-12 t-black--light t-normal">Sort by:</span>
+                                        <span class="t-12 t-black t-bold mh1">Recent</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                                            <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                     </div>
                      <div class="right-rail">Right</div>
                 </div>
         </div>

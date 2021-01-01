@@ -513,7 +513,6 @@ body{
     background-color:var(--color-background-canvas) !important;
 }
 /* End of Common Styles */
-
 /* Header styles */
 .global-nav {
     background-color: var(--color-background-container) !important;
@@ -522,6 +521,7 @@ body{
     position: fixed;
     top: 0;
     width: 100vw;
+    z-index: 100000000000;
 }
 .global-nav__content {
     align-items: center;

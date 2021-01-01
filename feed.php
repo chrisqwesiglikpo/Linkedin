@@ -217,7 +217,7 @@ if(!isset($page_title)){
                             <div>
                                     <div class="share-box-feed-entry__wrapper artdeco-card">
                                             <div class="display-flex align-items-center mt2 mr4 ml4">
-                                                <button type="button" class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry__trigger--v2">
+                                                <button type="button" class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary share-box-feed-entry__trigger--v2" id="postModal">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
                                                             <path d="M19 12h2v6a3 3 0 01-3 3H6a3 3 0 01-3-3V6a3 3 0 013-3h6v2H6a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1zm4-8a2.91 2.91 0 01-.87 2l-8.94 9L7 17l2-6.14 9-9A3 3 0 0123 4zm-4 2.35L17.64 5l-7.22 7.22 1.35 1.34z"/>
                                                         </svg>
@@ -270,5 +270,78 @@ if(!isset($page_title)){
                 </div>
         </div>
     </section>
+    <div class="artdeco-modal-outlet__post">
+            <div class="artdeco-modal__postContainer">
+                <div class="artdeco-modal__header">
+                    <div class="artdeco-modal__header-post">
+                        <h2 id="share-to-linkedin-modal__header">Create a post</h2>
+                        <button aria-label="Dismiss" type="button" id="artdeco-modal__header-post-close" class="artdeco-modal__header-close">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                                 <path d="M14 3.41L9.41 8 14 12.59 12.59 14 8 9.41 3.41 14 2 12.59 6.59 8 2 3.41 3.41 2 8 6.59 12.59 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="artdeco-modal__content-post">
+                    <div class="share-post__modal">
+                        <div class="share-box-v2__creation--in-modal-with-drawer">
+                                <div class="share-box__content-v2--scrollable">
+                                        <div id="ember1020">
+                                            <div id="ember1021" class="post__modal-imgWrapper">
+                                                <img src="<?php echo url_for($user->profilePic); ?>" alt="<?php echo $user->firstName." ".$user->lastName; ?>">
+                                            </div>
+                                            <div id="ember1022" class="display-flex ml1 artdeco-entity-lockup__content ember-view">
+                                                <div class="block artdeco-entity-lockup__title ember-view"><?php echo $user->firstName." ".$user->lastName; ?></div>
+                                                <button id="ember1023" class="share-state-change-button__button artdeco-button artdeco-button--muted artdeco-button--1 artdeco-button--secondary mr1">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                                                     <path d="M8 1a7 7 0 107 7 7 7 0 00-7-7zM3 8a5 5 0 011-3l.55.55A1.5 1.5 0 015 6.62v1.07a.75.75 0 00.22.53l.56.56a.75.75 0 00.53.22H7v.69a.75.75 0 00.22.53l.56.56a.75.75 0 01.22.53V13a5 5 0 01-5-5zm6.24 4.83l2-2.46a.75.75 0 00.09-.8l-.58-1.16A.76.76 0 0010 8H7v-.19a.51.51 0 01.28-.45l.38-.19a.74.74 0 01.68 0L9 7.5l.38-.7a1 1 0 00.12-.48v-.85a.78.78 0 01.21-.53l1.07-1.09a5 5 0 01-1.54 9z"></path>
+                                                   </svg>
+                                                   <span class="ph1">Anyone</span>
+                                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                                                       <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
+                                                   </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="editor-container">
+                                            <textarea placeholder="What do you want to talk about?" aria-label="What do you want to talk about?" id="editorInput" class="ql-editor" role="textbox" autofocus="true"></textarea>
+                                        </div>
+                                </div>
+                               
+                        </div>
+                        <div class="share-box__footer">
+                             <div class="share-box__detour-btn-container">
+                                 <button type="button" id="ember1100" class="artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                       <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
+                                    </svg>
+                                 </button>
+                                 <button type="button" id="ember1101" class="artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                       <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
+                                    </svg>
+                                 </button>
+                                 <button type="button" id="ember1102" class="artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                       <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm-9 12V8l6 4z"></path>
+                                    </svg>
+                                 </button>
+                                 <button type="button" id="ember1103" class="artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--2 artdeco-button--tertiary ember-view">
+                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+                                      <path d="M3 3v15a3 3 0 003 3h9v-6h6V3zm9 8H6v-1h6zm6-3H6V7h12zm-2 8h5l-5 5z"></path>
+                                    </svg>
+                                 </button>
+                             </div>
+                             <div class="share-box__actions mlA">
+                                 <button id="ember1104" type="button" class="share-actions__primary-action artdeco-button artdeco-button--2 artdeco-button--primary artdeco-button--disabled ember-view" disabled>
+                                     <span class="artdeco-button__text-disabled">Post</span>
+                                 </button>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
     <script src="<?php echo url_for('frontend/assets/js/common.js'); ?>"></script>
+    <script src="<?php echo url_for('frontend/assets/js/post.js'); ?>"></script>
 </body>

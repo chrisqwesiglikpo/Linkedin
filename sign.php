@@ -27,8 +27,8 @@
       $loadFromUser->create('token', array('token'=>sha1($token), 'user_id'=>$user_id));
       setcookie('FBID', $token, time()+60*60*24*7, '/', NULL, NULL, true);
       $_SESSION["userLoggedIn"]=$user_id;
-
-      redirect_to(url_for("profile"));
+      $username=$loadFromUser->getUsernameById($user_id);
+      redirect_to(url_for("in/".$username));
     }
 
   }
@@ -52,8 +52,6 @@
                      <p class="header__content__subheading ">Make the most of your professional life</p>
                   </div>
                   <form  action="<?php echo h($_SERVER["PHP_SELF"]);?>" class="login-page-form" method="POST">
-                      <!-- <input type="text" class="form-login-input" placeholder="Email or mobile number">
-                      <input type="password" class="form-login-input"> -->
                       <div class="form__input--floating mt-24">
                           <label class="form__label--floating" for="firstname" aria-hidden="true">First name</label>
                           <input id="firstname" name="firstname" type="text" aria-describedby="error-for-firstname"  value="<?php getInputValue('firstname'); ?>" autocomplete="off" autofocus required>

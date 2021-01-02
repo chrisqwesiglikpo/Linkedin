@@ -1,5 +1,6 @@
 $(function(){
     let modalPost=document.querySelector(".artdeco-modal-outlet__post");
+    let succPostModal=document.querySelector(".artedeco-toast-item_toasts__post");
     var u_id = $('.u_p_id').data('uid');
    $(document).on("click","#postModal",function(e){
        e.preventDefault();
@@ -15,6 +16,10 @@ $(function(){
         modalPost.style.display="none";
     }
 }
+
+$(document).on("click","#btn-post-close__succ",function(){
+   succPostModal.style.display="none";
+});
 
 $(document).on("keyup","#editorInput",function(e){
       let textbox=$(e.target);
@@ -44,6 +49,11 @@ $(document).on("click","#ember1104",function(e){
                 modalPost.style.display="none";
                 $("#editorInput").val("");
                 submitButton.prop("disabled",true);
+                succPostModal.style.display="block";
+                $(".artedeco-toast-item_toasts__post").html(data);
+                setTimeout(function(){
+                    succPostModal.style.display="none";
+                },3000);
             });
         }
     }

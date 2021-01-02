@@ -525,6 +525,106 @@ h2#share-to-linkedin-modal__header{
     margin-bottom: 0;
     padding-right: 1.6rem;
 }
+/* Post Successs */
+.artdeco-toast-item__icon--success {
+    fill: var(--color-signal-positive)!important;
+}
+section#artdeco-toasts-succ {
+    position: fixed;
+    bottom: 32px;
+    left: 32px;
+    z-index: 110000;
+    display: block;
+}
+ul.artedeco-toast-item_toasts__post {
+    width: 376px;
+    position: absolute;
+    bottom: 0;
+    display:none;
+}
+.artdeco-toast-item {
+    background: var(--white,#fff);
+    min-height: 56px;
+    outline: 1px solid transparent;
+    padding: 16px;
+    transition-duration: 334ms;
+    transition-property: opacity,transform;
+    transition-timing-function: ease-out;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border: none !important;
+    box-shadow: var(--elevation-raised) !important;
+}
+.artdeco-toast-item--visibile{
+ opacity:1;
+ transform:scale(1);
+}
+.artdeco-toast-item{
+  border-radius:var(--corner-radius-medium) !important;
+}
+.artdeco-toast-item:only-of-type{
+    animation:artdeco-toast-fadein 33ms ease-in 1; 
+}
+.artdeco-toast-item__content-post {
+    display: flex;
+    padding-right: 32px;
+    flex:1;
+}
+.btn-post-close__succ{
+    height:3.2rem;
+    width:3.2rem;
+    border-radius:var(--corner-radius-full) !important;
+}
+.btn-post-close__succ:hover{
+    background-color:var(--color-background-none-tint-hover);
+    color:var(--color-text-low-emphasis-shift);
+}
+p.artdeco-toast-item__message {
+    margin-left: .8rem;
+}
+a.artdeco-toast-item__cta {
+    color: rgba(0,0,0,0.9);
+    font-weight: 600;
+    font-size: 100%;
+    background: transparent;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: 167ms;
+    align-items: center;
+    border: none;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    min-width: 6.4rem;
+    overflow: hidden;
+    text-align: center;
+    transition-property: background-color,box-shadow,color;
+    vertical-align: middle;
+}
+.post__update-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+a.post__update-link.mt-2 {
+    color: var(--color-text);
+    margin-top: 8px !important;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+}
+a.post__update-link.mt-2:hover {
+  text-decoration: underline;
+}
+a.artdeco-toast-item__cta:hover {
+    text-decoration:underline;
+}
+/*  End of Post Success */
 /* End of Main Section */
 .right-rail {
     grid-column: 3/4;

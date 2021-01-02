@@ -48,7 +48,7 @@ $profileData = $loadFromUser->userData($profileId);
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
                         <div class="global-nav__primary-link-notif">
-                               <span class="nofication-badge notifcation-badge--show">
+                               <span class="nofication-badge ">
                                     <span class="notification-badge__no-count"></span>
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
@@ -61,7 +61,7 @@ $profileData = $loadFromUser->userData($profileId);
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('mynetwork/'); ?>" class="global-nav__primary-link ember-view">
                         <div class="global-nav__primary-link-notif">
-                               <span class="nofication-badge notifcation-badge--show">
+                               <span class="nofication-badge ">
                                     <span class="notification-badge__count"></span>
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
@@ -83,7 +83,7 @@ $profileData = $loadFromUser->userData($profileId);
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('messaging/thread/new/'); ?>" class="global-nav__primary-link ember-view">
                         <div class="global-nav__primary-link-notif">
-                               <span class="nofication-badge notifcation-badge--show">
+                               <span class="nofication-badge ">
                                     <span class="notification-badge__count"></span>
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
@@ -97,7 +97,7 @@ $profileData = $loadFromUser->userData($profileId);
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('notifications/'); ?>" class="global-nav__primary-link ember-view">
                         <div class="global-nav__primary-link-notif">
-                               <span class="nofication-badge notifcation-badge--show">
+                               <span class="nofication-badge ">
                                     <span class="notification-badge__count"></span>
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">

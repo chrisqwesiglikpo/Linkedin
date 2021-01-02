@@ -363,6 +363,11 @@ if(!isset($page_title)){
                 </div>
             </div>
     </div>
+    <section id="artdeco-toasts-succ" class="artdeco-toast-succ">
+        <ul class="artedeco-toast-item_toasts__post">
+           
+        </ul>
+    </section>
     <script src="<?php echo url_for('frontend/assets/js/common.js'); ?>"></script>
     <script src="<?php echo url_for('frontend/assets/js/post.js'); ?>"></script>
 </body>

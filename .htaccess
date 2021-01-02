@@ -9,6 +9,7 @@ RewriteRule ^settings/account/?$ account.php
 RewriteRule ^settings/password/?$ password.php
 RewriteRule ^i/notifications/?$ notification.php
 RewriteRule ^messaging/thread/new/?$ messaging.php
+RewriteRule ^feed/update/urn:li:activity:([0-9]+)/?$ update.php?post=$1
 
 
 RewriteRule ^hashtag/([a-zA-Z0-9_-]+)/?$ hashtag.php?hashtag=$1  [QSA,L]

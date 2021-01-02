@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" id="signal-success-large" data-supported-dps="64x64">
+  <circle cx="32" cy="32" r="32" fill="#9db88f"/>
+  <circle cx="32" cy="32" r="22.5" fill="#d7ebce"/>
+  <path d="M32 11a21 21 0 11-21 21 21 21 0 0121-21m0-3a24 24 0 1024 24A24.027 24.027 0 0032 8z" fill="#f8fbf6"/>
+  <path d="M29.836 42a2 2 0 01-1.331-.507l-8.642-7.707a2 2 0 012.662-2.986l6.993 6.236 10.337-14.212a2 2 0 013.235 2.353l-11.637 16a2 2 0 01-1.4.812 1.914 1.914 0 01-.217.011z" fill="#38434f"/>
+</svg>

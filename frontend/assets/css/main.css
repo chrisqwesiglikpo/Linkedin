@@ -1305,3 +1305,56 @@ span.visibility-setting__trigger-content {
 /* End of Edit Styles */
 /* End of Profile Style */
 /* End of Main Area */
+
+/* Notifications */
+.global-nav__primary-link-notif {
+    position: relative;
+    display: inline-flex;
+}
+
+span.nofication-badge {
+    position: absolute;
+    transition-timing-function: cubic-bezier(.4,0,1,1);
+    -moz-transition-duration:167ms;
+    transform-origin:bottom left;
+    top: -2px;
+    left: 14px;
+    border: none !important;
+    opacity:0;
+    background-color: var(--system-red-70,#d11124);
+    text-align: center;
+    box-shadow: 0 0 0 .1rem var( --white,#fff);
+    display: block;
+    align-items: flex-start;
+    justify-content: center;
+    height: 1.6rem;
+    padding: 0 .4rem;
+    border-radius: .8rem;
+    transform:scale(0);
+    min-width: .8rem;
+    z-index: 1;
+    box-sizing: inherit;
+}
+span.nofication-badge.notifcation-badge--show {
+  transition-timing-function:cubic-bezier(0,0,0.2,1);
+  transition-duration:167ms;
+  opacity:1;
+  transform:scale(1);
+}
+span.notification-badge__count {
+    font-family: var(--artdeco-typography-sans);
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.3333;
+    position: relative;
+    display: initial;
+}
+span.notification-badge__no-count{
+    height:.6rem;
+    width:.6rem;
+    display: block;
+    background-color:var(--white,#fff);
+    border-radius:.6rem;
+    margin:.5rem .1rem;
+}
+/* End of Notifications */

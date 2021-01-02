@@ -47,17 +47,27 @@ $profileData = $loadFromUser->userData($profileId);
                 <ul class="global-nav__primary-items">
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('feed/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                          <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
-                        </svg>
+                        <div class="global-nav__primary-link-notif">
+                               <span class="nofication-badge ">
+                                    <span class="notification-badge__no-count"></span>
+                                </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                                    <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"/>
+                                </svg>             
+                        </div>
                                  <span class="global-nav__primary-link-text">Home</span>
                         </a>
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('mynetwork/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                           <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"/>
-                        </svg>
+                        <div class="global-nav__primary-link-notif">
+                               <span class="nofication-badge ">
+                                    <span class="notification-badge__count"></span>
+                                </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                                   <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"/>
+                                </svg>                   
+                        </div>
                         <span class="global-nav__primary-link-text">My Network</span>
                         </a>
                     </li>
@@ -71,22 +81,31 @@ $profileData = $loadFromUser->userData($profileId);
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('messaging/thread/new/'); ?>" class="global-nav__primary-link ember-view">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                           <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"/>
-                        </svg>
+                        <div class="global-nav__primary-link-notif">
+                               <span class="nofication-badge ">
+                                    <span class="notification-badge__count"></span>
+                                </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
+                                  <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"/>
+                                </svg>
+                                                  
+                        </div>
+  
                             <span class="global-nav__primary-link-text">Messaging</span>
                         </a>
                     </li>
                     <li class="global-nav-primary-item">
                         <a href="<?php echo url_for('notifications/'); ?>" class="global-nav__primary-link ember-view">
-                           <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="nav-icon" width="24" height="24" focusable="false">
-                               <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"/>
-                            </svg> -->
-                            <svg id="global-nav-icon--mercado__notifications--active" class="nav-icon" height="24" width="24">
-                                <path d="M21.4 17L20.7 15.6L5.2 12.2L4 13.1C3 13.9 2.4 14.7 2.2 15.6L2 16.6L21.7 21L21.9 20C22 19.7 22 19.5 22 19.2C22 18.5 21.8 17.8 21.4 17Z"></path>
-                                <path d="M20.5 8.8C20.8 5.7 18.7 2.8 15.6 2.1C15.1 2 14.6 2 14.2 2C11.6 2 9.19999 3.6 8.29999 6.1L6.29999 11.4L20.1 14.5L20.5 8.8Z"></path>
-                                <path d="M11 20C11 21.1 11.9 22 13 22C14.1 22 15 21.1 15 20C15 19.8 15 19.7 14.9 19.5L11.4 18.7C11.2 19.1 11 19.5 11 20Z"></path>
-                            </svg>
+                            <div class="global-nav__primary-link-notif">
+                                   <span class="nofication-badge ">
+                                        <span class="notification-badge__count"></span>
+                                    </span>
+                                    <svg id="global-nav-icon--mercado__notifications--active" class="nav-icon" height="24" width="24">
+                                      <path d="M21.4 17L20.7 15.6L5.2 12.2L4 13.1C3 13.9 2.4 14.7 2.2 15.6L2 16.6L21.7 21L21.9 20C22 19.7 22 19.5 22 19.2C22 18.5 21.8 17.8 21.4 17Z"></path>
+                                      <path d="M20.5 8.8C20.8 5.7 18.7 2.8 15.6 2.1C15.1 2 14.6 2 14.2 2C11.6 2 9.19999 3.6 8.29999 6.1L6.29999 11.4L20.1 14.5L20.5 8.8Z"></path>
+                                      <path d="M11 20C11 21.1 11.9 22 13 22C14.1 22 15 21.1 15 20C15 19.8 15 19.7 14.9 19.5L11.4 18.7C11.2 19.1 11 19.5 11 20Z"></path>
+                                   </svg>                       
+                            </div>
                             <span class="global-nav__primary-link-text">Notifications</span>
                         </a>
                     </li>
